@@ -11283,6 +11283,37 @@ Bùi Khánh Linh"></textarea>
     let rocketFinishedTriggered = false;
     let rocketNitroActive = false;
 
+    // Tải 5 hình ảnh tàu vũ trụ 3D siêu ngầu (với fallback Google Drive CDN)
+    const rocketImages = [];
+    const ROCKET_IMAGE_SOURCES = [
+      'rockets/rocket_1.png',
+      'rockets/rocket_2.png',
+      'rockets/rocket_3.png',
+      'rockets/rocket_4.png',
+      'rockets/rocket_5.png'
+    ];
+    const ROCKET_CDN_SOURCES = [
+      'https://lh3.googleusercontent.com/d/1cescnl9EkAlCVt4yF6Rz8nhdvG8zlZ4K',
+      'https://lh3.googleusercontent.com/d/1aIf_B_kYmpDkpbFYzFy9PqFKOLwMLOVE',
+      'https://lh3.googleusercontent.com/d/1gbRcCFbLh-3jk0TkQW2gwMTb93x0cBIZ',
+      'https://lh3.googleusercontent.com/d/1p1YLi80KUxaHpLqLHuzJOZZ_Van2uDDT',
+      'https://lh3.googleusercontent.com/d/1t81qgfdXDgi7uD76ZRaPtHn2UmmHL-RV'
+    ];
+
+    ROCKET_IMAGE_SOURCES.forEach((src, idx) => {
+      const img = new Image();
+      img.src = src;
+      img.onerror = () => {
+        const fallbackImg = new Image();
+        fallbackImg.crossOrigin = 'anonymous';
+        fallbackImg.src = ROCKET_CDN_SOURCES[idx];
+        fallbackImg.onload = () => {
+          rocketImages[idx] = fallbackImg;
+        };
+      };
+      rocketImages.push(img);
+    });
+
     // Khởi tạo các vì sao bay ngược chiều (từ Phải sang Trái) tạo cảm giác siêu tốc
     function initSpaceStars() {
       spaceStars = [];
@@ -11376,6 +11407,7 @@ Bùi Khánh Linh"></textarea>
           finishTime: 0,
           dockX: 840 + (i % 3) * 35,
           dockY: laneY,
+          imgIndex: i % 5,
           seed: Math.random() * 100
         });
       }
@@ -11773,6 +11805,10 @@ Bùi Khánh Linh"></textarea>
 
       // VẼ TÀU VŨ TRỤ (BAY NGANG HƯỚNG MŨI SANG PHẢI)
       // Sắp xếp vẽ tàu dẫn đầu lên trên cùng
+      const activeRockets = rockets.filter(r => !r.finished);
+      const leaderRocket = activeRockets.length > 0
+        ? activeRockets.reduce((max, r) => r.x > max.x ? r : max, activeRockets[0])
+        : null;
       const sortedRockets = [...rockets].sort((a, b) => a.x - b.x);
 
       sortedRockets.forEach(r => {
@@ -11780,99 +11816,91 @@ Bùi Khánh Linh"></textarea>
         rocketCtx.translate(r.x, r.y);
         rocketCtx.rotate(r.tilt);
 
-        const shipL = 64; // Chiều dài tàu
-        const shipH = 28; // Chiều cao thân tàu
+        const shipW = 104; // Chiều dài tàu vũ trụ 3D
+        const shipH = 35;  // Chiều cao thân tàu (tỉ lệ chuẩn 3:1)
         const bodyColor = r.color || '#38bdf8';
+        const img = rocketImages[r.imgIndex !== undefined ? r.imgIndex : (r.id % 5)];
 
-        // Ánh hào quang bao quanh tàu
-        rocketCtx.shadowColor = bodyColor;
-        rocketCtx.shadowBlur = r.surgePower > 1.3 ? 20 : 10;
+        // Ánh hào quang bao quanh tàu khi lướt không gian & tăng tốc Nitro
+        rocketCtx.shadowColor = (r.surgePower > 1.3 || rocketNitroActive) ? '#00f2fe' : bodyColor;
+        rocketCtx.shadowBlur = (r.surgePower > 1.3 || rocketNitroActive) ? 22 : 12;
 
-        // 1. Cánh trên & Cánh dưới
-        rocketCtx.fillStyle = '#1e293b';
-        rocketCtx.strokeStyle = bodyColor;
-        rocketCtx.lineWidth = 1.8;
-
-        // Cánh trên
-        rocketCtx.beginPath();
-        rocketCtx.moveTo(-16, -shipH * 0.4);
-        rocketCtx.lineTo(-28, -shipH * 0.95);
-        rocketCtx.lineTo(-4, -shipH * 0.4);
-        rocketCtx.closePath();
-        rocketCtx.fill();
-        rocketCtx.stroke();
-
-        // Cánh dưới
-        rocketCtx.beginPath();
-        rocketCtx.moveTo(-16, shipH * 0.4);
-        rocketCtx.lineTo(-28, shipH * 0.95);
-        rocketCtx.lineTo(-4, shipH * 0.4);
-        rocketCtx.closePath();
-        rocketCtx.fill();
-        rocketCtx.stroke();
-
-        // 2. Thân tàu chính khí động học (chỉ sang phải)
-        rocketCtx.beginPath();
-        rocketCtx.moveTo(shipL * 0.5, 0); // Mũi tàu nhọn
-        rocketCtx.lineTo(shipL * 0.1, -shipH * 0.48);
-        rocketCtx.lineTo(-shipL * 0.46, -shipH * 0.42);
-        rocketCtx.lineTo(-shipL * 0.46, shipH * 0.42);
-        rocketCtx.lineTo(shipL * 0.1, shipH * 0.48);
-        rocketCtx.closePath();
-
-        const hullGrad = rocketCtx.createLinearGradient(-shipL * 0.5, 0, shipL * 0.5, 0);
-        hullGrad.addColorStop(0, '#0f172a');
-        hullGrad.addColorStop(0.5, bodyColor);
-        hullGrad.addColorStop(1, '#ffffff');
-        rocketCtx.fillStyle = hullGrad;
-        rocketCtx.fill();
-        rocketCtx.strokeStyle = '#ffffff';
-        rocketCtx.lineWidth = 2;
-        rocketCtx.stroke();
-
-        // 3. Buồng lái vòm kính Hologram phát sáng
-        rocketCtx.beginPath();
-        rocketCtx.ellipse(shipL * 0.15, 0, shipL * 0.22, shipH * 0.26, 0, 0, Math.PI * 2);
-        rocketCtx.fillStyle = '#00f2fe';
-        rocketCtx.shadowColor = '#00f2fe';
-        rocketCtx.shadowBlur = 12;
-        rocketCtx.fill();
-        rocketCtx.strokeStyle = '#ffffff';
-        rocketCtx.lineWidth = 1.5;
-        rocketCtx.stroke();
-
-        // 4. Ống xả phản lực kép phía sau (-X)
-        rocketCtx.fillStyle = '#334155';
-        rocketCtx.fillRect(-shipL * 0.52, -shipH * 0.32, shipL * 0.08, shipH * 0.24);
-        rocketCtx.fillRect(-shipL * 0.52, shipH * 0.08, shipL * 0.08, shipH * 0.24);
-
-        // 5. Huy hiệu / Thứ hạng nếu đã cán đích
-        if (r.finished) {
+        if (img && img.complete && img.naturalWidth > 0) {
+          // VẼ HÌNH ẢNH TÀU VŨ TRỤ 3D SIÊU NGẦU (Theo ảnh Google Drive người dùng cung cấp)
+          rocketCtx.drawImage(img, -shipW * 0.5, -shipH * 0.5, shipW, shipH);
+        } else {
+          // Fallback vector dự phòng nếu ảnh đang tải
+          rocketCtx.fillStyle = '#1e293b';
+          rocketCtx.strokeStyle = bodyColor;
+          rocketCtx.lineWidth = 1.8;
           rocketCtx.beginPath();
-          rocketCtx.arc(0, 0, 14, 0, Math.PI * 2);
-          rocketCtx.fillStyle = r.rank === 1 ? '#facc15' : (r.rank === 2 ? '#e2e8f0' : '#f97316');
+          rocketCtx.moveTo(-16, -shipH * 0.4);
+          rocketCtx.lineTo(-28, -shipH * 0.95);
+          rocketCtx.lineTo(-4, -shipH * 0.4);
+          rocketCtx.closePath();
+          rocketCtx.fill();
+          rocketCtx.stroke();
+
+          rocketCtx.beginPath();
+          rocketCtx.moveTo(-16, shipH * 0.4);
+          rocketCtx.lineTo(-28, shipH * 0.95);
+          rocketCtx.lineTo(-4, shipH * 0.4);
+          rocketCtx.closePath();
+          rocketCtx.fill();
+          rocketCtx.stroke();
+
+          rocketCtx.beginPath();
+          rocketCtx.moveTo(shipW * 0.45, 0);
+          rocketCtx.lineTo(shipW * 0.1, -shipH * 0.48);
+          rocketCtx.lineTo(-shipW * 0.45, -shipH * 0.42);
+          rocketCtx.lineTo(-shipW * 0.45, shipH * 0.42);
+          rocketCtx.lineTo(shipW * 0.1, shipH * 0.48);
+          rocketCtx.closePath();
+          const hullGrad = rocketCtx.createLinearGradient(-shipW * 0.5, 0, shipW * 0.5, 0);
+          hullGrad.addColorStop(0, '#0f172a');
+          hullGrad.addColorStop(0.5, bodyColor);
+          hullGrad.addColorStop(1, '#ffffff');
+          rocketCtx.fillStyle = hullGrad;
           rocketCtx.fill();
           rocketCtx.strokeStyle = '#ffffff';
           rocketCtx.lineWidth = 2;
           rocketCtx.stroke();
+        }
 
-          rocketCtx.fillStyle = '#000000';
-          rocketCtx.font = 'bold 11px Inter, sans-serif';
+        // Vương miện cho tàu dẫn đầu
+        if (r === leaderRocket && !r.finished) {
+          rocketCtx.font = '22px sans-serif';
           rocketCtx.textAlign = 'center';
-          rocketCtx.textBaseline = 'middle';
-          rocketCtx.fillText(`#${r.rank}`, 0, 0);
+          rocketCtx.fillText('👑', 12, -shipH * 0.5 - 14);
+        }
+
+        // Huy hiệu danh dự to rõ khi về đích (#1, #2, #3, ...)
+        if (r.finished) {
+          const medal = r.rank === 1 ? '🥇' : (r.rank === 2 ? '🥈' : (r.rank === 3 ? '🥉' : '🎖️'));
+          rocketCtx.font = 'bold 18px Outfit, sans-serif';
+          rocketCtx.textAlign = 'center';
+          rocketCtx.fillStyle = '#facc15';
+          rocketCtx.shadowColor = '#facc15';
+          rocketCtx.shadowBlur = 10;
+          rocketCtx.fillText(`${medal} #${r.rank}`, 14, -shipH * 0.5 - 14);
+          rocketCtx.shadowBlur = 0;
         }
 
         rocketCtx.restore();
 
-        // 6. TÊN HỌC SINH HIỂN THỊ TO RÕ RÀNG TRÊN MỖI TÀU
+        // TÊN & DANH HIỆU HỌC SINH HIỂN THỊ TO RÕ RÀNG TRÊN MỖI TÀU
         rocketCtx.save();
         rocketCtx.textAlign = 'center';
         rocketCtx.font = 'bold 13px Inter, sans-serif';
         rocketCtx.shadowColor = 'rgba(0, 0, 0, 0.95)';
-        rocketCtx.shadowBlur = 6;
+        rocketCtx.shadowBlur = 8;
         rocketCtx.fillStyle = '#ffffff';
-        rocketCtx.fillText(`${r.id}. ${r.name}`, r.x, r.y - shipH * 0.6 - 8);
+        rocketCtx.fillText(`${r.id}. ${r.name}`, r.x + 8, r.y - shipH * 0.5 - 6);
+        if (r.nickname) {
+          rocketCtx.font = '600 10px Inter, sans-serif';
+          rocketCtx.fillStyle = '#facc15';
+          rocketCtx.fillText(`• ${r.nickname}`, r.x + 8, r.y + shipH * 0.5 + 14);
+        }
         rocketCtx.restore();
       });
 
@@ -12894,6 +12922,48 @@ Bùi Khánh Linh"></textarea>
         }
       }
     });
+
+    /* ====================================================================
+       BẢO VỆ MÃ NGUỒN: CHẶN CHUỘT PHẢI, F12 & CÁC PHÍM TẮT DEVTOOLS
+       ==================================================================== */
+    // 1. Chặn menu chuột phải
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      return false;
+    }, true);
+
+    // 2. Chặn F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U, Ctrl+S
+    window.addEventListener('keydown', (e) => {
+      // Chặn F12
+      if (e.key === 'F12' || e.keyCode === 123) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+      // Chặn Ctrl+Shift+I / J / C (DevTools Inspect)
+      if (e.ctrlKey && e.shiftKey && (
+        e.key === 'I' || e.key === 'i' ||
+        e.key === 'J' || e.key === 'j' ||
+        e.key === 'C' || e.key === 'c' ||
+        e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67
+      )) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+      // Chặn Ctrl+U (Xem mã nguồn trang web)
+      if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+      // Chặn Ctrl+S (Lưu trang web về máy)
+      if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    }, true);
 
   })();
   </script>
