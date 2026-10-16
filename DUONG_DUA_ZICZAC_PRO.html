@@ -6221,39 +6221,40 @@ Bùi Khánh Linh"></textarea>
         // 1. KIỂU ĐƯỜNG ĐUA: 🌊 ZICZAC 6 TẦNG CỔ ĐIỂN (MƯỢT MÀ, KHÔNG BẪY NỔ)
         // ==========================================================
         if (selectedTrackType === 'classic_zigzag') {
-          const isRowZero = (r === 0);
-          const rampWidth = isRowZero ? 620 : 660;
-          const rampAngle = (isEven ? 1 : -1) * (isRowZero ? 0.36 : 0.22);
-          const rampX = isEven ? 350 : (WIDTH - 350);
+          // Chiều dài dốc 580px tạo khe thoát rộng rãi 190px mỗi đầu, triệt tiêu hoàn toàn nghẽn ở tầng 2 & 3
+          const rampWidth = 580;
+          const rampAngle = (isEven ? 1 : -1) * 0.35;
+          const rampX = isEven ? 360 : (WIDTH - 360);
           const ramp = M.Bodies.rectangle(rampX, curY + 40, rampWidth, 16, {
-            isStatic: true, angle: rampAngle, friction: 0.008, restitution: 0.72, label: 'ramp'
+            isStatic: true, angle: rampAngle, friction: 0.005, restitution: 0.75, label: 'ramp'
           });
           M.Composite.add(engine.world, ramp);
           obstacles.push({ type: 'ramp', body: ramp, angle: rampAngle, w: rampWidth, h: 16 });
 
-          if (isRowZero) {
-            boosters.push({
-              x: 380,
-              y: curY + 28,
-              w: 130,
-              h: 22,
-              angle: 0.36,
-              vx: 12,
-              vy: 6
-            });
-          }
+          // Bộ tăng tốc trợ lực dòng chảy trơn tru trên TẤT CẢ các tầng (kể cả tầng 2, 3...)
+          boosters.push({
+            x: isEven ? 440 : (WIDTH - 440),
+            y: curY + 28,
+            w: 120,
+            h: 24,
+            angle: rampAngle,
+            vx: isEven ? 11 : -11,
+            vy: 5.5
+          });
 
-          const bX = isEven ? WIDTH - 65 : 65;
-          const bumper = M.Bodies.circle(bX, curY + 60, 22, {
-            isStatic: true, restitution: 1.18, friction: 0.01, label: 'bumper'
+          // Đệm uốn góc dẫn hướng mượt mà, không hắt ngược bi
+          const bX = isEven ? WIDTH - 70 : 70;
+          const bumper = M.Bodies.circle(bX, curY + 65, 22, {
+            isStatic: true, restitution: 0.88, friction: 0.01, label: 'bumper'
           });
           M.Composite.add(engine.world, bumper);
           obstacles.push({ type: 'bumper', body: bumper, r: 22 });
 
-          for (let px = 180; px < WIDTH - 180; px += 140) {
-            const peg = M.Bodies.circle(px + (isEven ? 0 : 70), curY + 80, 8, { isStatic: true, restitution: 0.8 });
+          // Các chốt phân luồng tinh tế giữa đường dốc, không cản trở lối thoát
+          for (let px = 270; px <= WIDTH - 270; px += 180) {
+            const peg = M.Bodies.circle(px + (isEven ? 20 : -20), curY + 68, 7, { isStatic: true, restitution: 0.65 });
             M.Composite.add(engine.world, peg);
-            obstacles.push({ type: 'peg', body: peg, r: 8 });
+            obstacles.push({ type: 'peg', body: peg, r: 7 });
           }
           continue;
         }
@@ -6262,38 +6263,34 @@ Bùi Khánh Linh"></textarea>
         // 2. KIỂU ĐƯỜNG ĐUA: ⚡ ZICZAC SIÊU TỐC (DỐC LƯỢN & BÀN ĐẠP TURBO MỖI TẦNG)
         // ==========================================================
         if (selectedTrackType === 'zigzag_highway') {
-          const rampWidth = 640;
-          const rampAngle = (isEven ? 1 : -1) * 0.28;
-          const rampX = isEven ? 350 : (WIDTH - 350);
+          // Góc dốc 0.36 kết hợp chiều dài 580px đảm bảo bi lướt vèo vèo qua tầng 2, 3 không chút ngập ngừng
+          const rampWidth = 580;
+          const rampAngle = (isEven ? 1 : -1) * 0.36;
+          const rampX = isEven ? 360 : (WIDTH - 360);
           const ramp = M.Bodies.rectangle(rampX, curY + 40, rampWidth, 16, {
-            isStatic: true, angle: rampAngle, friction: 0.005, restitution: 0.72, label: 'ramp'
+            isStatic: true, angle: rampAngle, friction: 0.003, restitution: 0.75, label: 'ramp'
           });
           M.Composite.add(engine.world, ramp);
           obstacles.push({ type: 'ramp', body: ramp, angle: rampAngle, w: rampWidth, h: 16 });
 
-          // Turbo Booster tăng tốc cực mạnh trên mỗi tầng dốc
+          // Turbo Booster siêu tốc đẩy mạnh đoàn bi qua từng tầng cua
           boosters.push({
-            x: isEven ? 460 : WIDTH - 460,
+            x: isEven ? 450 : WIDTH - 450,
             y: curY + 28,
-            w: 90,
-            h: 22,
+            w: 140,
+            h: 24,
             angle: rampAngle,
-            vx: isEven ? 12 : -12,
-            vy: 5
+            vx: isEven ? 13.5 : -13.5,
+            vy: 6
           });
 
-          // Đệm nảy phản lực tốc độ cao ở góc ngoặt cua
-          const bumperX = isEven ? WIDTH - 60 : 60;
-          const bumper = M.Bodies.circle(bumperX, curY + 65, 24, {
-            isStatic: true, restitution: 1.45, friction: 0.01, label: 'bumper'
+          // Đệm nảy cua góc mềm dẻo đưa bi lượn xuống tầng kế tiếp thần tốc
+          const bumperX = isEven ? WIDTH - 65 : 65;
+          const bumper = M.Bodies.circle(bumperX, curY + 70, 22, {
+            isStatic: true, restitution: 0.92, friction: 0.01, label: 'bumper'
           });
           M.Composite.add(engine.world, bumper);
-          obstacles.push({ type: 'bumper', body: bumper, r: 24 });
-
-          // Chốt kim cương phản xạ gia tốc
-          const midPeg = M.Bodies.circle(isEven ? 220 : WIDTH - 220, curY + 75, 10, { isStatic: true, restitution: 1.1 });
-          M.Composite.add(engine.world, midPeg);
-          obstacles.push({ type: 'peg', body: midPeg, r: 10 });
+          obstacles.push({ type: 'bumper', body: bumper, r: 22 });
           continue;
         }
 
@@ -6979,15 +6976,16 @@ Bùi Khánh Linh"></textarea>
         const dist = Math.hypot(b.position.x - b.runnerData.lastX, b.position.y - b.runnerData.lastY);
         if (dist < 4) {
           b.runnerData.stillTime += 16.6;
-          // Kẹt quá 2 giây -> tự động hích nhẹ để bi tiếp tục lăn
-          if (b.runnerData.stillTime > 2000) {
-            const dir = Math.random() > 0.5 ? 1 : -1;
+          // Kẹt quá 800ms -> tự động hích về phía trước theo đúng hướng dốc để bi lướt tiếp tục
+          if (b.runnerData.stillTime > 800) {
+            const rowIdx = Math.max(0, Math.floor((b.position.y - startY) / rowSpacing));
+            const goRight = (rowIdx % 2 === 0);
             Matter.Body.setVelocity(b, {
-              x: dir * (4 + Math.random() * 4),
-              y: -(6 + Math.random() * 5)
+              x: (goRight ? 1 : -1) * (5 + Math.random() * 4),
+              y: 4 + Math.random() * 3
             });
             b.runnerData.stillTime = 0;
-            addSpark(b.position.x, b.position.y, '#ff2a85');
+            addSpark(b.position.x, b.position.y, '#00f2fe');
           }
         } else {
           b.runnerData.stillTime = 0;
@@ -6998,7 +6996,18 @@ Bùi Khánh Linh"></textarea>
     }
 
     function updateSimulation(dt) {
-      if (!raceRunning) return;
+      if (!raceRunning) {
+        // Khi cuộc đua kết thúc, giữ các bạn về sau dừng lại ở khoảng cách an toàn trước vạch đích
+        if (raceWinners.length >= pickTargetCount) {
+          balls.forEach(b => {
+            if (!b.runnerData.finished && b.position.y > finishY - 80) {
+              Matter.Body.setPosition(b, { x: b.position.x, y: finishY - 80 });
+              Matter.Body.setVelocity(b, { x: 0, y: 0 });
+            }
+          });
+        }
+        return;
+      }
 
       const M = Matter;
       M.Engine.update(engine, 1000 / 60);
@@ -7017,14 +7026,17 @@ Bùi Khánh Linh"></textarea>
       updateShockwaves();
       autoJiggleStalledBalls();
 
-      // Cơ chế chống dồn nghẽn vạch đầu: Trong 4.5 giây đầu, đẩy nhanh các bi còn chậm ở điểm xuất phát
-      if (simMs < 4500) {
+      // Cơ chế duy trì dòng chảy thần tốc ở các tầng 1, 2, 3: Đảm bảo không bao giờ bị nghẽn chậm
+      if (simMs < 12000) {
         balls.forEach(b => {
-          if (!b.runnerData.finished && b.position.y < startY + 140) {
-            if (b.velocity.y < 3.2) {
+          if (!b.runnerData.finished && b.position.y < startY + rowSpacing * 3.5) {
+            const currentSpeed = Math.hypot(b.velocity.x, b.velocity.y);
+            if (currentSpeed < 3.0) {
+              const rowIdx = Math.max(0, Math.floor((b.position.y - startY) / rowSpacing));
+              const goRight = (rowIdx % 2 === 0);
               Matter.Body.setVelocity(b, {
-                x: b.velocity.x + (Math.random() - 0.5) * 3,
-                y: Math.max(b.velocity.y + 4.5, 7.5)
+                x: (goRight ? 1 : -1) * (5.5 + Math.random() * 3.5),
+                y: Math.max(b.velocity.y + 4.0, 6.5)
               });
             }
           }
@@ -7859,8 +7871,12 @@ Bùi Khánh Linh"></textarea>
         }
       });
 
+      // Giữ các bạn bi về sau dừng lại ở khoảng cách an toàn trước vạch đích để quan sát rõ top chiến thắng
       balls.forEach(b => {
         if (!b.runnerData.finished) {
+          if (b.position.y > finishY - 80) {
+            Matter.Body.setPosition(b, { x: b.position.x, y: finishY - 80 });
+          }
           Matter.Body.setVelocity(b, { x: 0, y: 0 });
         }
       });
@@ -9711,11 +9727,28 @@ Bùi Khánh Linh"></textarea>
       // Cập nhật từng chú vịt bơi ngang trên hồ ngọc bích
       duckRacers.forEach(d => {
         if (d.finished) {
-          // Vịt đã cán đích bơi chậm lại và thả trôi
-          d.vx *= 0.93;
-          d.vy *= 0.93;
-          d.x += d.vx;
-          d.y += d.vy;
+          if (duckRaceFinishedState && d.targetBayX) {
+            d.x += (d.targetBayX - d.x) * 0.08;
+            d.y += (d.targetBayY - d.y) * 0.08;
+            d.vx = 0;
+            d.vy = 0;
+          } else {
+            // Vịt đã cán đích bơi chậm lại và thả trôi
+            d.vx *= 0.93;
+            d.vy *= 0.93;
+            d.x += d.vx;
+            d.y += d.vy;
+          }
+          return;
+        }
+
+        if (!duckRaceRunning) {
+          // Khi cuộc đua kết thúc hoặc dừng lại, giữ các bạn về sau cách xa khu vực đích để dễ quan sát
+          if (d.x > duckFinishX - 140) {
+            d.x += ((duckFinishX - 140) - d.x) * 0.1;
+          }
+          d.vx = 0;
+          d.vy = 0;
           return;
         }
 
@@ -9987,6 +10020,15 @@ Bùi Khánh Linh"></textarea>
           duck.y = duck.targetBayY;
           duck.vx = 0;
           duck.vy = 0;
+        }
+      });
+
+      // Giữ các bạn vịt về sau dừng lại ở vị trí cách xa top chiến thắng (trước vạch đích) để dễ quan sát
+      duckRacers.forEach(d => {
+        if (!d.finished) {
+          d.x = Math.min(d.x, duckFinishX - 140);
+          d.vx = 0;
+          d.vy = 0;
         }
       });
 
@@ -11554,6 +11596,16 @@ Bùi Khánh Linh"></textarea>
           return;
         }
 
+        if (!rocketRaceRunning) {
+          // Khi cuộc đua kết thúc, giữ các tàu về sau dừng lại ở vị trí cách xa trạm đích vinh danh để nhìn rõ top chiến thắng
+          if (r.x > 690) {
+            r.x += (690 - r.x) * 0.1;
+          }
+          r.vx = 0;
+          r.tilt *= 0.8;
+          return;
+        }
+
         // Kích hoạt ngẫu nhiên đợt tăng tốc Nitro vượt mặt (Warp Surge)
         if (rocketRaceRunning) {
           if (r.surgeTimer > 0) {
@@ -11640,6 +11692,14 @@ Bùi Khánh Linh"></textarea>
               setTimeout(() => {
                 speakAllWinners(rocketWinners);
               }, 600);
+
+              // Giữ các bạn về sau dừng lại cách xa khu vực trạm đích Space Dock để dễ quan sát
+              rockets.forEach(rk => {
+                if (!rk.finished) {
+                  rk.x = Math.min(rk.x, 690);
+                  rk.vx = 0;
+                }
+              });
 
               raceWinners = rocketWinners.map(w => ({
                 rank: w.rank,
