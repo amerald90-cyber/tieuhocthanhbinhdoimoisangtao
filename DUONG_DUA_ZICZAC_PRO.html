@@ -7038,7 +7038,9 @@ Bùi Khánh Linh"></textarea>
         });
       }
 
-      // CƠ CHẾ RƯỢT ĐUỔI GAY CẤN & ĐỔI NGÔI LIÊN TỤC
+      // ====================================================================
+      // HỆ THỐNG RƯỢT ĐUỔI KỊCH TÍNH & ĐỔI NGÔI BẤT NGỜ (DYNAMIC OVERTAKING)
+      // ====================================================================
       const activeRunners = balls.filter(b => !b.runnerData.finished);
       if (activeRunners.length > 1) {
         activeRunners.sort((a, b) => b.position.y - a.position.y);
@@ -7046,43 +7048,93 @@ Bùi Khánh Linh"></textarea>
         const secondLeader = activeRunners[1];
         const leaderGap = currentLeader.position.y - secondLeader.position.y;
 
-        // 1. Cản gió người dẫn đầu nếu bỏ quá xa & Hút gió (Slipstream) cho các bi sau
-        if (leaderGap > 130) {
-          currentLeader.frictionAir = 0.0024; // Tăng cản không khí nhẹ cho người dẫn đầu
-          for (let i = 1; i < Math.min(activeRunners.length, 6); i++) {
-            const chaser = activeRunners[i];
+        // 1. CƠ CHẾ NÚP GIÓ & HÚT TỐC TỰ NHIÊN (SLIPSTREAM DRAFTING):
+        // Khi bi bám đuổi áp sát bi phía trước (cách nhau 20 - 95px theo Y và < 85px theo X)
+        // Bi sau được hưởng luồng khí động học, tăng tốc vọt lên để so kè và vượt mặt ngoạn mục!
+        for (let i = 1; i < Math.min(activeRunners.length, 12); i++) {
+          const chaser = activeRunners[i];
+          const ahead = activeRunners[i - 1];
+          const distY = ahead.position.y - chaser.position.y;
+          const distX = Math.abs(ahead.position.x - chaser.position.x);
+
+          if (distY > 20 && distY < 95 && distX < 85) {
+            const rowIdx = Math.max(0, Math.floor((chaser.position.y - startY) / (rowSpacing || 135)));
+            const goRight = (rowIdx % 2 === 0);
             Matter.Body.applyForce(chaser, chaser.position, {
-              x: (Math.random() - 0.5) * 0.0008,
-              y: 0.0016
+              x: (goRight ? 1 : -1) * 0.0016,
+              y: 0.0028
             });
-            if (Math.random() < 0.15) {
+            if (Math.random() < 0.2) {
               addSpark(chaser.position.x, chaser.position.y, '#00f2fe');
             }
+          }
+        }
+
+        // 2. KHẮC CHẾ BỎ XA (ACTIVE RUBBER-BANDING):
+        // Nếu người dẫn đầu bứt quá xa (> 55px), tăng lực cản gió nhẹ để đoàn đua luôn bám sát kịch tính
+        if (leaderGap > 55) {
+          currentLeader.frictionAir = 0.0034;
+          for (let i = 1; i < Math.min(activeRunners.length, 6); i++) {
+            const chaser = activeRunners[i];
+            const rowIdx = Math.max(0, Math.floor((chaser.position.y - startY) / (rowSpacing || 135)));
+            const goRight = (rowIdx % 2 === 0);
+            Matter.Body.applyForce(chaser, chaser.position, {
+              x: (goRight ? 1 : -1) * 0.0012,
+              y: 0.0022
+            });
           }
         } else {
           currentLeader.frictionAir = 0.0008;
         }
 
-        // 2. Thỉnh thoảng tạo cú hích bứt tốc ngẫu nhiên cho top 2 - 5 để lội ngược dòng
-        if (simMs - lastSurgeMs > 3500) {
+        // 3. CÚ HÍCH BỨT TỐC LỘI NGƯỢC DÒNG BẤT NGỜ (SURPRISE SURGE OVERTAKES):
+        // Cứ mỗi 1.4 - 1.8 giây, một đấu sĩ từ Top 2 đến Top 8 bứt tốc thần sầu vọt lên
+        if (simMs - lastSurgeMs > 1500) {
           lastSurgeMs = simMs;
-          const randomIdx = 1 + Math.floor(Math.random() * Math.min(4, activeRunners.length - 1));
-          const chaser = activeRunners[randomIdx];
-          Matter.Body.setVelocity(chaser, {
-            x: chaser.velocity.x * 1.15,
-            y: Math.max(chaser.velocity.y, 7 + Math.random() * 4)
-          });
-          addSpark(chaser.position.x, chaser.position.y, '#facc15');
+          const maxCandidate = Math.min(activeRunners.length - 1, 7);
+          const surgeIdx = 1 + Math.floor(Math.random() * maxCandidate);
+          const chaser = activeRunners[surgeIdx];
+          if (chaser) {
+            const rowIdx = Math.max(0, Math.floor((chaser.position.y - startY) / (rowSpacing || 135)));
+            const goRight = (rowIdx % 2 === 0);
+            Matter.Body.setVelocity(chaser, {
+              x: chaser.velocity.x * 1.25 + (goRight ? 4 : -4),
+              y: Math.max(chaser.velocity.y + 4.5, 9 + Math.random() * 4)
+            });
+            for (let s = 0; s < 5; s++) {
+              addSpark(chaser.position.x, chaser.position.y, ['#facc15', '#f97316', '#ff2a85', '#00f2fe'][s % 4]);
+            }
+          }
         }
 
-        // 3. Phát hiện đổi ngôi dẫn đầu (Lead Change) và báo động
+        // 4. NƯỚC RÚT VỀ ĐÍCH GAY CẤN NGHẸT THỞ (FINAL STRETCH SPRINT):
+        // Khi bi dẫn đầu cách đích < 400px, Top 4 liên tục tung đòn bứt phá sát nút
+        if (currentLeader.position.y > finishY - 400 && currentLeader.position.y < finishY - 30) {
+          if (Math.random() < 0.28) {
+            const sprintIdx = Math.floor(Math.random() * Math.min(4, activeRunners.length));
+            const sprinter = activeRunners[sprintIdx];
+            if (sprinter) {
+              const rowIdx = Math.max(0, Math.floor((sprinter.position.y - startY) / (rowSpacing || 135)));
+              const goRight = (rowIdx % 2 === 0);
+              Matter.Body.applyForce(sprinter, sprinter.position, {
+                x: (goRight ? 1 : -1) * 0.002,
+                y: 0.0035
+              });
+              addSpark(sprinter.position.x, sprinter.position.y, '#facc15');
+            }
+          }
+        }
+
+        // 5. PHÁT HIỆN ĐỔI NGÔI DẪN ĐẦU & BÁO HIỆU SÔI NỔI:
         if (currentLeader.runnerData.id !== currentLeaderId) {
           const prevId = currentLeaderId;
           currentLeaderId = currentLeader.runnerData.id;
-          if (prevId !== null && simMs > 1200) {
+          if (prevId !== null && simMs > 1000) {
             sound.playLeadChange();
             triggerLeadChangeBanner(currentLeader.runnerData.name, currentLeader.runnerData.nickname);
-            addSpark(currentLeader.position.x, currentLeader.position.y, '#facc15');
+            for (let k = 0; k < 6; k++) {
+              addSpark(currentLeader.position.x, currentLeader.position.y, '#facc15');
+            }
           }
         }
       }
@@ -7529,11 +7581,21 @@ Bùi Khánh Linh"></textarea>
         ctx.fillStyle = '#040d1a';
         ctx.fillText(String(rd.id), 0, 1);
 
-        // VƯƠNG MIỆN NẾU ĐANG DẪN ĐẦU (LEADER CROWN)
+        // VƯƠNG MIỆN & HÀO QUANG NẾU ĐANG DẪN ĐẦU (LEADER CROWN & AURA)
         if (isLeader && !rd.finished) {
-          ctx.font = '20px sans-serif';
+          const pulse = 1 + Math.sin(simMs * 0.01) * 0.12;
+          ctx.beginPath();
+          ctx.arc(0, 0, BALL_RADIUS + 5 * pulse, 0, Math.PI * 2);
+          ctx.strokeStyle = '#facc15';
+          ctx.lineWidth = 2.5;
+          ctx.shadowColor = '#facc15';
+          ctx.shadowBlur = 14;
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+
+          ctx.font = '22px sans-serif';
           ctx.textAlign = 'center';
-          ctx.fillText('👑', 0, -BALL_RADIUS - 16);
+          ctx.fillText('👑', 0, -BALL_RADIUS - 17);
         }
 
         // HUY HIỆU DANH DỰ TO RÕ KHI VỀ ĐÍCH (#1, #2, #3, ...)
@@ -8286,9 +8348,11 @@ Bùi Khánh Linh"></textarea>
       if (!banner || !textEl) return;
       const title = nick ? `${name} (${nick})` : name;
       textEl.textContent = `⚡ ${title.toUpperCase()} VỪA VƯƠN LÊN DẪN ĐẦU!`;
+      banner.classList.add('highlight');
       banner.classList.add('show');
       if (leadChangeTimer) clearTimeout(leadChangeTimer);
       leadChangeTimer = setTimeout(() => {
+        banner.classList.remove('highlight');
         banner.classList.remove('show');
       }, 2500);
     }
