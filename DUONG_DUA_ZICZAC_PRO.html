@@ -11,16 +11,9 @@
   <!-- Cố gắng nạp Matter.js từ file cục bộ hoặc fallback CDN -->
   <script src="matter.min.js"></script>
   <script>
-    // Fallback nếu matter.min.js cùng cấp chưa có hoặc bị chặn
+    // Fallback đồng bộ tức thì nếu matter.min.js cục bộ bị thiếu hoặc chặn
     if (typeof Matter === 'undefined') {
-      const fallbackScript = document.createElement('script');
-      fallbackScript.src = "ĐƯỜNG ĐUA BI ZICZAC_files/matter.min.js.tải xuống";
-      fallbackScript.onerror = () => {
-        const cdnScript = document.createElement('script');
-        cdnScript.src = "https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js";
-        document.head.appendChild(cdnScript);
-      };
-      document.head.appendChild(fallbackScript);
+      document.write('<script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"><\/script>');
     }
   </script>
   <!-- SheetJS cho import Excel -->
@@ -6013,6 +6006,8 @@ Bùi Khánh Linh"></textarea>
     let lastIceSoundMs = 0;
     let finishY = 2400;
     let startY = 160;
+    let rowSpacing = 135;
+    let totalRows = 24;
     let worldHeight = 2600;
     let cameraY = 0;
     let raceRunning = false;
@@ -6144,9 +6139,9 @@ Bùi Khánh Linh"></textarea>
         targetSec = parseInt(document.getElementById('input-race-seconds').value) || 30;
       }
 
-      let totalRows = 24;
+      totalRows = 24;
       let baseGravity = 0.72;
-      let rowSpacing = 135;
+      rowSpacing = 135;
 
       if (targetSec <= 6) {
         totalRows = 6;
@@ -7745,11 +7740,15 @@ Bùi Khánh Linh"></textarea>
       const dt = Math.min(time - lastTick, 100);
       lastTick = time;
 
-      updateSimulation(dt);
-      updateCamera();
-      renderCanvas();
-      if (raceRunning && (simMs % 150 < 30)) {
-        updateLeaderboardHUD();
+      try {
+        updateSimulation(dt);
+        updateCamera();
+        renderCanvas();
+        if (raceRunning && (simMs % 150 < 30)) {
+          updateLeaderboardHUD();
+        }
+      } catch (err) {
+        console.error("Lỗi trong vòng lặp ZicZac:", err);
       }
 
       animFrameId = requestAnimationFrame(gameLoop);
