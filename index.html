@@ -2531,6 +2531,18 @@
       background: linear-gradient(135deg, rgba(4, 30, 45, 0.95) 0%, rgba(2, 15, 24, 0.98) 100%);
       border-color: rgba(56, 189, 248, 0.35);
     }
+    
+    /* CARD 8: UFO ƠI, BẮT EM NÀY */
+    .card-ufo {
+      background: linear-gradient(135deg, rgba(28, 16, 56, 0.95) 0%, rgba(10, 8, 30, 0.98) 100%);
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+    .card-ufo:hover {
+      border-color: #c084fc;
+      box-shadow: 0 16px 40px rgba(168, 85, 247, 0.45);
+    }
+    .badge-ufo { background: linear-gradient(135deg, #a855f7, #06b6d4); color: #fff; font-weight: 800; }
+    .btn-ufo-play { background: linear-gradient(135deg, #9333ea, #06b6d4) !important; color: #fff !important; font-weight: 800; }
     .card-fish:hover {
       border-color: #38bdf8;
       box-shadow: 0 16px 40px rgba(56, 189, 248, 0.4);
@@ -2545,7 +2557,7 @@
     .btn-fish-play { background: linear-gradient(135deg, #0284c7, #06b6d4) !important; color: #fff !important; font-weight: 800; }
 
     /* Screen layouts for wheel, rocket, gift, fish */
-    #wheel-screen, #rocket-screen, #gift-screen, #fish-screen {
+    #wheel-screen, #rocket-screen, #gift-screen, #fish-screen, #ufo-screen {
       display: none;
       flex-direction: column;
       width: 100%;
@@ -3276,7 +3288,69 @@
               </g>
             </svg>
           </div>
+        
+        <!-- CARD 8: UFO ƠI, BẮT EM NÀY (HÚT HỌC SINH LÊN ĐĨA BAY) -->
+        <div class="game-showcase-card card-ufo" id="home-card-ufo">
+          <div class="card-content-left">
+            <div class="card-tag badge-ufo">🛸 ĐĨA BAY VŨ TRỤ • GỌI TÊN ĐỈNH CAO</div>
+            <h2 class="card-game-title">UFO ƠI, BẮT EM NÀY</h2>
+            <p class="card-game-desc">
+              Đĩa bay ngoài hành tinh hạ cánh trên phố đêm! Chùm tia sáng thần kỳ hút học sinh lên phi thuyền gọi tên ngẫu nhiên siêu hài hước, kịch tính! 🛸✨
+            </p>
+            <div class="card-btn-group">
+              <button type="button" class="btn-play-primary btn-ufo-play" id="btn-home-play-ufo">
+                <span>🛸 VÀO BẮT HỌC SINH</span> <span style="font-size: 16px;">›</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-visual-right">
+            <svg width="120" height="115" viewBox="0 0 120 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ufoBeamCardGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.75"/>
+                  <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05"/>
+                </linearGradient>
+                <linearGradient id="ufoHullGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#e2e8f0"/>
+                  <stop offset="40%" stop-color="#94a3b8"/>
+                  <stop offset="100%" stop-color="#334155"/>
+                </linearGradient>
+                <linearGradient id="ufoDomeGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#0284c7" stop-opacity="0.5"/>
+                </linearGradient>
+              </defs>
+              <!-- Chùm tia sáng hình nón -->
+              <polygon points="60,52 15,112 105,112" fill="url(#ufoBeamCardGrad)"/>
+              <ellipse cx="60" cy="112" rx="45" ry="6" fill="#06b6d4" opacity="0.3"/>
+              <!-- Vòng sáng năng lượng trong tia -->
+              <ellipse cx="60" cy="80" rx="22" ry="3.5" fill="none" stroke="#67e8f9" stroke-width="1.5" opacity="0.8"/>
+              <ellipse cx="60" cy="98" rx="34" ry="4.5" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.6"/>
+              <!-- Vòm kính lái phi thuyền -->
+              <ellipse cx="60" cy="38" rx="22" ry="18" fill="url(#ufoDomeGrad)"/>
+              <ellipse cx="60" cy="32" rx="14" ry="9" fill="#ffffff" opacity="0.45"/>
+              <!-- Chú Alien nhỏ mắt to trong buồng lái -->
+              <circle cx="60" cy="38" r="7" fill="#84cc16"/>
+              <circle cx="57" cy="37" r="2" fill="#0f172a"/>
+              <circle cx="63" cy="37" r="2" fill="#0f172a"/>
+              <line x1="60" y1="31" x2="60" y2="26" stroke="#84cc16" stroke-width="1.5"/>
+              <circle cx="60" cy="25" r="2" fill="#facc15"/>
+              <!-- Vỏ đĩa bay kim loại 3D -->
+              <ellipse cx="60" cy="50" rx="52" ry="13" fill="url(#ufoHullGrad)"/>
+              <ellipse cx="60" cy="48" rx="50" ry="11" fill="#475569"/>
+              <!-- Đèn viền đĩa bay nhấp nháy -->
+              <circle cx="20" cy="50" r="3" fill="#22d3ee"/>
+              <circle cx="36" cy="53" r="3" fill="#a855f7"/>
+              <circle cx="52" cy="54" r="3" fill="#facc15"/>
+              <circle cx="68" cy="54" r="3" fill="#34d399"/>
+              <circle cx="84" cy="53" r="3" fill="#f43f5e"/>
+              <circle cx="100" cy="50" r="3" fill="#38bdf8"/>
+              <!-- Cổng phát tia sáng dưới đáy -->
+              <ellipse cx="60" cy="54" rx="14" ry="4.5" fill="#06b6d4"/>
+            </svg>
+          </div>
         </div>
+</div>
       </div>
 
       <!-- NÚT MỞ NHANH BẢNG CÀI ĐẶT DANH SÁCH -->
@@ -3471,6 +3545,9 @@ Bùi Khánh Linh"></textarea>
             </button>
             <button type="button" class="game-tab-btn tab-fish" data-gametab="fish" id="tab-btn-setup-fish">
               🎣 Hồ Câu Cá
+            </button>
+            <button type="button" class="game-tab-btn tab-ufo" data-gametab="ufo" id="tab-btn-setup-ufo">
+              🛸 UFO Bắt Học Sinh
             </button>
           </div>
         </div>
@@ -3709,7 +3786,21 @@ Bùi Khánh Linh"></textarea>
           <button type="button" id="btn-open-fish" class="btn btn-fish-play" style="width: 100%; margin-top: 10px; padding: 13px 16px; font-size: 14px; font-weight: 800;">
             🎣 VÀO HỒ CÂU CÁ ĐẠI DƯƠNG NGAY
           </button>
-        </div>
+        
+        <!-- TAB CÀI ĐẶT 8: UFO ƠI, BẮT EM NÀY -->
+        <div id="setup-tab-content-ufo" class="setup-tab-content-panel" style="display: none;">
+          <div style="background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); border-radius: 12px; padding: 12px; margin: 12px 0;">
+            <div style="font-weight: 700; color: #c084fc; font-size: 13px;">🛸 UFO Ơi, Bắt Em Này - Vũ Trụ Gọi Tên:</div>
+            <ul style="margin: 6px 0 0 18px; font-size: 12px; color: var(--text-muted); line-height: 1.6;">
+              <li>Đĩa bay ngoài hành tinh xuất hiện trên bầu trời đêm thành phố nhộn nhịp.</li>
+              <li>Chùm tia sáng hút người quét qua các bạn học sinh với 30+ hành động hài hước.</li>
+              <li>Khóa mục tiêu giả kịch tính bất ngờ, hút học sinh lên đĩa bay và xướng tên rực rỡ!</li>
+            </ul>
+          </div>
+          <button type="button" id="btn-open-ufo" class="btn btn-ufo-play" style="width: 100%; margin-top: 10px; padding: 13px 16px; font-size: 14px; font-weight: 800;">
+            🛸 VÀO CHƠI UFO BẮT HỌC SINH NGAY
+          </button>
+        </div></div>
       </div>
 
       <!-- CỘT PHẢI: XEM TRƯỚC DANH SÁCH & TÊN ĐÙA -->
@@ -4399,6 +4490,105 @@ Bùi Khánh Linh"></textarea>
                 </button>
                 <button type="button" id="btn-reset-fish" class="btn btn-secondary" style="flex: 1; font-size: 12px;">
                   🔄 Câu lại
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <!-- ==============================================
+         SCREEN 8: UFO ƠI, BẮT EM NÀY (ALIEN UFO ABDUCTION)
+         ============================================== -->
+    <div id="ufo-screen" class="screen" style="display: none;">
+      <div class="glass-panel race-top-bar" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 16px;">
+        <div class="race-top-left" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+          <button type="button" class="btn btn-secondary btn-back-home" style="padding: 7px 12px; font-size: 13px;" title="Về trang chủ">
+            🏠 Trang chủ
+          </button>
+          <button type="button" class="btn btn-secondary btn-back-setup" style="padding: 7px 12px; font-size: 13px;" title="Cài đặt">
+            ⚙️ Cài đặt
+          </button>
+          <button type="button" class="btn btn-primary btn-open-game-setup" data-game="ufo" style="padding: 7px 14px; font-size: 13px; font-weight: 800; background: linear-gradient(135deg, #9333ea, #06b6d4); color: #fff; box-shadow: 0 0 12px rgba(168,85,247,0.4);" title="Nhập danh sách học sinh">
+            📝 Nhập Danh Sách
+          </button>
+          <div class="race-badge" id="ufo-status-badge" style="background: rgba(168,85,247,0.15); border-color: rgba(168,85,247,0.5); color: #c084fc;">
+            <span>🛸</span> UFO ƠI, BẮT EM NÀY
+          </div>
+          <!-- Mode badge pill -->
+          <div style="font-size: 12px; font-weight: 700; color: #a5f3fc; background: rgba(15,23,42,0.7); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(56,189,248,0.3);" id="ufo-mode-pill">
+            🎯 Không lặp lại • ⏱️ Chuẩn
+          </div>
+        </div>
+
+        <div class="race-top-right" style="display: flex; align-items: center; gap: 8px;">
+          <button type="button" id="btn-ufo-shuffle-top" class="btn btn-secondary" style="padding: 7px 14px; font-size: 12px; font-weight: 700; border-color: rgba(192,132,252,0.4); color: #e9d5ff;" title="Đổi ngẫu nhiên các hoạt động vui của học sinh">
+            🎭 Đổi Hành Động
+          </button>
+          <button type="button" id="btn-start-ufo-top" class="btn btn-ufo-play" style="padding: 8px 18px; font-weight: 800; font-size: 13px; border-radius: 20px;">
+            🛸 BẮT ĐẦU GỌI TÊN
+          </button>
+        </div>
+      </div>
+
+      <div class="game-arena-layout">
+        <div class="game-canvas-wrap" id="ufo-canvas-wrap" style="position: relative; overflow: hidden;">
+          <canvas id="ufo-canvas" width="960" height="600" style="display: block; width: 100%; height: 100%;"></canvas>
+
+          <!-- IN-CANVAS FLOATING CONTROL DOCK (PHONG CÁCH VŨ TRỤ THÔNG MINH) -->
+          <div id="ufo-in-game-dock" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(12px); border: 1.5px solid rgba(168, 85, 247, 0.5); padding: 8px 16px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 10; max-width: 95%;">
+            <div id="ufo-dock-status" style="font-size: 12px; font-weight: 700; color: #38bdf8; display: flex; align-items: center; gap: 6px; padding: 4px 10px; background: rgba(8,14,35,0.85); border-radius: 16px; border: 1px solid rgba(56,189,248,0.3); white-space: nowrap;">
+              <span id="ufo-dock-status-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #34d399; display: inline-block;"></span>
+              <span id="ufo-dock-status-text">Sẵn sàng tìm kiếm đối tượng...</span>
+            </div>
+
+            <button type="button" id="btn-ufo-dock-start" class="btn" style="background: linear-gradient(135deg, #10b981, #06b6d4); color: #022c22; font-weight: 800; font-size: 13px; padding: 7px 18px; border-radius: 20px; border: none; box-shadow: 0 0 14px rgba(16,185,129,0.5); cursor: pointer; white-space: nowrap;">
+              🛸 BẮT ĐẦU GỌI TÊN
+            </button>
+
+            <button type="button" id="btn-ufo-dock-next" class="btn" style="display: none; background: linear-gradient(135deg, #f59e0b, #eab308); color: #451a03; font-weight: 800; font-size: 13px; padding: 7px 18px; border-radius: 20px; border: none; box-shadow: 0 0 14px rgba(245,158,11,0.5); cursor: pointer; white-space: nowrap;">
+              ▶ CHƠI TIẾP
+            </button>
+
+            <button type="button" id="btn-ufo-dock-speak" class="btn btn-secondary" style="display: none; font-size: 12px; padding: 7px 12px; border-radius: 18px; font-weight: 700;" title="Phát lại giọng đọc tên">
+              🔊 Đọc lại
+            </button>
+
+            <button type="button" id="btn-ufo-dock-shuffle" class="btn btn-secondary" style="font-size: 12px; padding: 7px 12px; border-radius: 18px; font-weight: 700; border-color: rgba(168,85,247,0.4); color: #d8b4fe;" title="Đổi các hành động vui của học sinh">
+              🎭 Đổi Hành Động
+            </button>
+
+            <button type="button" id="btn-ufo-dock-mode" class="btn btn-secondary" style="font-size: 12px; padding: 7px 12px; border-radius: 18px; font-weight: 700;" title="Chuyển chế độ Không lặp / Ngẫu nhiên">
+              🎯 Không Lặp
+            </button>
+          </div>
+        </div>
+
+        <div class="game-side-panel">
+          <div class="glass-panel" style="flex: 1; display: flex; flex-direction: column; padding: 14px; gap: 10px;">
+            <div class="panel-header" style="margin-bottom: 0;">
+              <h2>🛸 Đối Tượng Đã Nghiên Cứu</h2>
+              <span class="panel-badge badge-ufo" id="badge-ufo-finished-count">0/3</span>
+            </div>
+
+            <ul class="winners-list" id="ufo-winners-list" style="flex: 1; overflow-y: auto;">
+              <li style="color: var(--text-muted); font-size: 13px; text-align: center; margin-top: 30px;">
+                Bấm "BẮT ĐẦU GỌI TÊN" hoặc phím Space để đĩa bay săn tìm học sinh...
+              </li>
+            </ul>
+
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+              <button type="button" id="btn-podium-ufo" class="btn btn-view-podium" style="display: none; width: 100%; font-size: 13px; font-weight: 800; background: linear-gradient(135deg, #eab308, #f59e0b); color: #000; box-shadow: 0 0 16px rgba(234,179,8,0.5);">
+                🏆 XEM BẢNG VINH DANH TOP
+              </button>
+              <div style="display: flex; gap: 8px;">
+                <button type="button" id="btn-speak-ufo" class="btn btn-secondary" style="flex: 1; font-size: 12px;">
+                  📢 Đọc tên
+                </button>
+                <button type="button" id="btn-reset-ufo" class="btn btn-secondary" style="flex: 1; font-size: 12px;">
+                  🔄 Đặt lại vòng
                 </button>
               </div>
             </div>
@@ -5744,7 +5934,8 @@ Bùi Khánh Linh"></textarea>
         wheel: document.getElementById('wheel-screen'),
         rocket: document.getElementById('rocket-screen'),
         gift: document.getElementById('gift-screen'),
-        fish: document.getElementById('fish-screen')
+        fish: document.getElementById('fish-screen'),
+        ufo: document.getElementById('ufo-screen')
       };
 
       // Dừng triệt để tất cả vòng lặp render đồ họa nền để tránh giật lag
@@ -5771,6 +5962,10 @@ Bùi Khánh Linh"></textarea>
       if (screenId !== 'fish' && typeof fishAnimId !== 'undefined' && fishAnimId) {
         cancelAnimationFrame(fishAnimId);
         fishAnimId = null;
+      }
+      if (screenId !== 'ufo' && typeof ufoAnimId !== 'undefined' && ufoAnimId) {
+        cancelAnimationFrame(ufoAnimId);
+        ufoAnimId = null;
       }
 
       if (typeof stopConfetti === 'function') {
@@ -10739,6 +10934,14 @@ Bùi Khánh Linh"></textarea>
     const btnPlayFish = document.getElementById('btn-home-play-fish');
     if (btnPlayFish) btnPlayFish.addEventListener('click', (e) => { e.stopPropagation(); openFishScreen(); });
 
+    const cardUfo = document.getElementById('home-card-ufo');
+    if (cardUfo) cardUfo.addEventListener('click', openUfoScreen);
+    const btnPlayUfo = document.getElementById('btn-home-play-ufo');
+    if (btnPlayUfo) btnPlayUfo.addEventListener('click', (e) => { e.stopPropagation(); openUfoScreen(); });
+
+    const btnOpenUfo = document.getElementById('btn-open-ufo');
+    if (btnOpenUfo) btnOpenUfo.addEventListener('click', openUfoScreen);
+
     // Nút mở bảng Cài Đặt Danh Sách trên Trang Bìa
     const btnHomeOpenSetup = document.getElementById('btn-home-open-setup');
     if (btnHomeOpenSetup) {
@@ -10759,7 +10962,8 @@ Bùi Khánh Linh"></textarea>
         wheel: document.getElementById('setup-tab-content-wheel'),
         rocket: document.getElementById('setup-tab-content-rocket'),
         gift: document.getElementById('setup-tab-content-gift'),
-        fish: document.getElementById('setup-tab-content-fish')
+        fish: document.getElementById('setup-tab-content-fish'),
+        ufo: document.getElementById('setup-tab-content-ufo')
       };
       Object.keys(panels).forEach(k => {
         if (panels[k]) panels[k].style.display = (game === k) ? 'block' : 'none';
@@ -10852,6 +11056,9 @@ Bùi Khánh Linh"></textarea>
       } else if (currentQuickGame === 'cannon') {
         if (titleEl) titleEl.innerHTML = '🎯 Nhập Danh Sách & Cài Đặt Bắn Bóng May Mắn';
         if (descEl) descEl.textContent = 'Nhập tên các bạn tham gia và cấu hình đại bác bắn bóng may mắn';
+      } else if (currentQuickGame === 'ufo') {
+        if (titleEl) titleEl.innerHTML = '🛸 Nhập Danh Sách & Cài Đặt UFO Ơi, Bắt Em Này';
+        if (descEl) descEl.textContent = 'Nhập danh sách học sinh và gọi tên bằng đĩa bay vũ trụ';
       }
 
       modal.classList.add('show');
@@ -11027,6 +11234,11 @@ Bùi Khánh Linh"></textarea>
         } else if (currentQuickGame === 'cannon') {
           closeQuickGameModal();
           initCannon();
+          sound.playBooster();
+        } else if (currentQuickGame === 'ufo') {
+          closeQuickGameModal();
+          initUfoGame();
+          renderUfoCanvas();
           sound.playBooster();
         }
       });
@@ -13042,9 +13254,1444 @@ Bùi Khánh Linh"></textarea>
         } else if (document.getElementById('fish-screen').style.display === 'flex') {
           e.preventDefault();
           castFishHook();
+        } else if (document.getElementById('ufo-screen').style.display === 'flex') {
+          e.preventDefault();
+          if (ufoState === 'idle') {
+            startUfoAbduction();
+          } else if (ufoState === 'finished') {
+            playNextUfoRound();
+          }
         }
       }
     });
+
+    
+    /* ====================================================================
+       GAME ENGINE 8: UFO ƠI, BẮT EM NÀY (ALIEN UFO ABDUCTION NAME-PICKER)
+       ==================================================================== */
+    let ufoCanvas = document.getElementById('ufo-canvas');
+    let ufoCtx = ufoCanvas ? ufoCanvas.getContext('2d') : null;
+    let ufoAnimId = null;
+    let ufoState = 'idle'; // 'idle' | 'hunting' | 'locking' | 'abducting' | 'beamed' | 'finished'
+    let ufoStudents = [];
+    let ufoWinners = [];
+    let ufoTargetCount = 3;
+    let ufoChosenStudent = null;
+    let ufoAbductedPool = new Set();
+    let ufoMode = 'no_repeat'; // 'no_repeat' | 'pure_random'
+    let ufoSpeed = 'normal'; // 'slow' | 'normal' | 'fast'
+    let ufoDrama = 'intense'; // 'gentle' | 'intense'
+
+    // UFO State
+    let ufo = {
+      x: 480,
+      y: 110,
+      vx: 0,
+      vy: 0,
+      targetX: 480,
+      targetY: 110,
+      tilt: 0,
+      beamActive: false,
+      beamPower: 0,
+      beamTargetX: 480,
+      lightsPhase: 0,
+      flashAlpha: 0,
+      bannerAlpha: 0
+    };
+
+    // Camera & World dimensions
+    let ufoCameraX = 0;
+    let ufoTargetCameraX = 0;
+    let ufoWorldWidth = 960;
+
+    // Fake locks sequence
+    let ufoFakeLocks = [];
+    let ufoFakeLockIdx = 0;
+    let ufoLockTimer = 0;
+    let ufoAbductProgress = 0;
+
+    // Background elements
+    let ufoStars = [];
+    let ufoBuildings = [];
+    let ufoStreetLights = [];
+    let ufoParticles = [];
+    let ufoConfetti = [];
+
+    // 30+ Funny activities pool
+    const UFO_FUN_ACTIVITIES = [
+      'Đang ăn mì nóng 🍜',
+      'Đang tập tạ 💪',
+      'Đang ngồi hóng gió 🍃',
+      'Đang đọc truyện tranh 📖',
+      'Đang vẫy tay chào 👋',
+      'Đang nghe nhạc nhảy 🎧',
+      'Đang suy tư gãi đầu 🤔',
+      'Đang ngáp ngủ 😴',
+      'Đang uống trà sữa 🧋',
+      'Đang đuổi bắt bướm 🦋',
+      'Đang ngắm sao băng ⭐',
+      'Đang ăn kem mát lạnh 🍦',
+      'Đang tìm người ngoài hành tinh 👽',
+      'Đang làm toán siêu tốc ✏️',
+      'Đang selfie thả tim 📸',
+      'Đang trượt ván patin 🛹',
+      'Đang múa quạt vui nhộn 💃',
+      'Đang mơ mộng điểm 10 💯',
+      'Đang ngửi bông hoa 🌸',
+      'Đang uống nước dừa 🥥',
+      'Đang huýt sáo yêu đời 🎵',
+      'Đang nhảy dây điêu luyện 🏃',
+      'Đang xếp máy bay giấy ✈️',
+      'Đang bắt đom đóm phát sáng ✨',
+      'Đang tung hứng cam 🍊',
+      'Đang ngước nhìn đĩa bay 🛸',
+      'Đang ngậm kẹo mút 🍭',
+      'Đang thắt lại dây giày 👟',
+      'Đang làm ảo thuật biến mất 🎩',
+      'Đang cười tươi như hoa 😄'
+    ];
+
+    // Sound effects extension for SoundEngine
+    SoundEngine.prototype.playUfoScan = function() {
+      if (!this.sfxEnabled) return;
+      this.resume();
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(380, this.ctx.currentTime);
+        osc.frequency.linearRampToValueAtTime(750, this.ctx.currentTime + 0.1);
+        osc.frequency.linearRampToValueAtTime(320, this.ctx.currentTime + 0.22);
+        gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.22);
+        osc.connect(gain);
+        gain.connect(this.sfxGain);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 0.22);
+      } catch(e) {}
+    };
+
+    SoundEngine.prototype.playUfoLock = function() {
+      if (!this.sfxEnabled) return;
+      this.playTone(950, 'triangle', 0.08, 0.18);
+      setTimeout(() => this.playTone(1350, 'sine', 0.14, 0.25), 80);
+    };
+
+    SoundEngine.prototype.playUfoBeam = function() {
+      if (!this.sfxEnabled) return;
+      this.resume();
+      try {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(200, this.ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(880, this.ctx.currentTime + 1.2);
+        gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.02, this.ctx.currentTime + 1.2);
+        osc.connect(gain);
+        gain.connect(this.sfxGain);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 1.2);
+      } catch(e) {}
+    };
+
+    SoundEngine.prototype.playUfoVictory = function() {
+      if (!this.sfxEnabled) return;
+      [523.25, 659.25, 783.99, 1046.50, 1318.51].forEach((f, idx) => {
+        setTimeout(() => this.playTone(f, 'triangle', 0.28, 0.2), idx * 80);
+      });
+    };
+
+    function openUfoScreen() {
+      ensureRosterLoaded();
+      initUfoGame();
+      showScreen('ufo');
+      renderUfoCanvas();
+      startUfoLoop();
+    }
+
+    function initUfoGame() {
+      hidePodiumButton('ufo');
+      ufoState = 'idle';
+      ufoChosenStudent = null;
+      ufoFakeLocks = [];
+      ufoAbductProgress = 0;
+      ufo.beamActive = false;
+      ufo.beamPower = 0;
+      ufo.flashAlpha = 0;
+      ufo.bannerAlpha = 0;
+
+      const pickVal = parseInt(document.getElementById('input-pick-count').value, 10);
+      ufoTargetCount = Math.max(1, Math.min(pickVal || 3, roster.length));
+
+      // Reset pool if switching or starting fresh
+      if (!ufoAbductedPool) ufoAbductedPool = new Set();
+      if (ufoAbductedPool.size >= roster.length) {
+        ufoAbductedPool.clear();
+      }
+
+      // Build students list with positions along the sidewalk
+      const count = roster.length;
+      ufoWorldWidth = Math.max(960, count * 82);
+      const startX = 60;
+      const endX = ufoWorldWidth - 60;
+      const stepX = count > 1 ? (endX - startX) / (count - 1) : 0;
+
+      ufoStudents = [];
+      for (let i = 0; i < count; i++) {
+        const item = roster[i];
+        const isAbducted = ufoAbductedPool.has(item.id);
+        const actionIdx = i % UFO_FUN_ACTIVITIES.length;
+
+        ufoStudents.push({
+          id: item.id,
+          name: item.name,
+          nickname: item.nickname,
+          color: item.color || MARBLE_COLORS[i % MARBLE_COLORS.length],
+          gender: (i % 2 === 0 ? 'M' : 'F'),
+          action: UFO_FUN_ACTIVITIES[actionIdx],
+          actionType: i % 8,
+          x: count === 1 ? 480 : (startX + i * stepX),
+          baseY: 480,
+          y: 480,
+          abductedY: 0,
+          isAbducted: isAbducted,
+          isChosen: false,
+          scannedTimer: 0,
+          bobPhase: Math.random() * Math.PI * 2,
+          jumpY: 0
+        });
+      }
+
+      // Init background stars
+      ufoStars = [];
+      for (let i = 0; i < 90; i++) {
+        ufoStars.push({
+          x: Math.random() * ufoWorldWidth,
+          y: 10 + Math.random() * 260,
+          r: 0.8 + Math.random() * 1.8,
+          alpha: 0.3 + Math.random() * 0.7,
+          twinkleSpeed: 0.02 + Math.random() * 0.05
+        });
+      }
+
+      // Init city skyline buildings
+      ufoBuildings = [];
+      let curBx = 0;
+      while (curBx < ufoWorldWidth + 100) {
+        const bw = 55 + Math.random() * 65;
+        const bh = 140 + Math.random() * 180;
+        const color = Math.random() > 0.5 ? '#0d1b2a' : '#111e38';
+        const windows = [];
+        const cols = Math.floor(bw / 14);
+        const rows = Math.floor((bh - 30) / 18);
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            if (Math.random() > 0.35) {
+              const winColor = Math.random() > 0.6 ? '#fde047' : (Math.random() > 0.5 ? '#38bdf8' : '#fed7aa');
+              windows.push({ r, c, color: winColor });
+            }
+          }
+        }
+        ufoBuildings.push({ x: curBx, w: bw, h: bh, color, cols, rows, windows, hasAntenna: Math.random() > 0.4 });
+        curBx += bw - 8;
+      }
+
+      // Init streetlights along sidewalk
+      ufoStreetLights = [];
+      const lampCount = Math.max(4, Math.floor(ufoWorldWidth / 220));
+      for (let i = 0; i < lampCount; i++) {
+        ufoStreetLights.push({
+          x: 70 + i * (ufoWorldWidth / lampCount)
+        });
+      }
+
+      // UFO initial position
+      ufo.x = 480;
+      ufo.y = 110;
+      ufo.targetX = 480;
+      ufo.targetY = 110;
+      ufo.vx = 0;
+      ufo.tilt = 0;
+      ufo.beamActive = false;
+      ufo.beamPower = 0;
+      ufo.flashAlpha = 0;
+      ufo.bannerAlpha = 0;
+      ufoCameraX = 0;
+      ufoTargetCameraX = 0;
+      ufoParticles = [];
+      ufoConfetti = [];
+
+      updateUfoDockUI();
+      renderUfoWinnersList();
+    }
+
+    function startUfoAbduction() {
+      if (ufoState === 'hunting' || ufoState === 'abducting') return;
+      sound.resume();
+
+      // Find available candidates
+      let candidates = [];
+      if (ufoMode === 'no_repeat') {
+        candidates = ufoStudents.filter(s => !ufoAbductedPool.has(s.id));
+        if (candidates.length === 0) {
+          ufoAbductedPool.clear();
+          ufoStudents.forEach(s => s.isAbducted = false);
+          candidates = [...ufoStudents];
+        }
+      } else {
+        candidates = [...ufoStudents];
+      }
+
+      if (candidates.length === 0) return;
+
+      // Pick real target
+      const realTarget = candidates[Math.floor(Math.random() * candidates.length)];
+      ufoChosenStudent = realTarget;
+
+      // Build sequence of fake locks for suspense
+      const fakeCount = (ufoDrama === 'gentle') ? 2 : Math.min(4, Math.max(2, candidates.length - 1));
+      ufoFakeLocks = [];
+
+      const poolCopy = candidates.filter(s => s.id !== realTarget.id);
+      for (let i = 0; i < fakeCount; i++) {
+        if (poolCopy.length > 0) {
+          const fakePick = poolCopy[Math.floor(Math.random() * poolCopy.length)];
+          ufoFakeLocks.push(fakePick);
+        } else {
+          ufoFakeLocks.push(ufoStudents[Math.floor(Math.random() * ufoStudents.length)]);
+        }
+      }
+      ufoFakeLocks.push(realTarget); // Final lock is the real target!
+
+      ufoFakeLockIdx = 0;
+      ufoLockTimer = 0;
+      ufoState = 'hunting';
+      ufo.beamActive = true;
+      ufo.beamPower = 0.6;
+      ufo.targetX = ufoFakeLocks[0].x;
+      ufo.targetY = 110;
+
+      sound.playUfoScan();
+      updateUfoDockUI();
+    }
+
+    function shuffleUfoActivities() {
+      sound.playTone(550, 'triangle', 0.08, 0.15);
+      ufoStudents.forEach((s, idx) => {
+        const randIdx = Math.floor(Math.random() * UFO_FUN_ACTIVITIES.length);
+        s.action = UFO_FUN_ACTIVITIES[randIdx];
+        s.actionType = Math.floor(Math.random() * 8);
+      });
+      renderUfoCanvas();
+    }
+
+    function playNextUfoRound() {
+      if (ufoWinners.length >= ufoTargetCount && ufoMode === 'no_repeat') {
+        // Round target complete! Show modal or reset
+        showVictoryModal();
+        return;
+      }
+      ufoState = 'idle';
+      ufoChosenStudent = null;
+      ufo.bannerAlpha = 0;
+      ufo.beamActive = false;
+      ufo.beamPower = 0;
+      startUfoAbduction();
+    }
+
+    function speakUfoCurrentWinner() {
+      if (!ufoChosenStudent) return;
+      if (!document.getElementById('chk-speech-voice') || !document.getElementById('chk-speech-voice').checked) return;
+      if (!('speechSynthesis' in window)) return;
+
+      window.speechSynthesis.cancel();
+      const text = `Xin mời bạn ${ufoChosenStudent.name}! Đối tượng may mắn được đĩa bay lựa chọn!`;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'vi-VN';
+      utterance.rate = 1.05;
+      utterance.pitch = 1.1;
+
+      const voices = window.speechSynthesis.getVoices();
+      const viVoice = voices.find(v => v.lang.includes('vi') || v.lang.includes('VIE'));
+      if (viVoice) utterance.voice = viVoice;
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function toggleUfoMode() {
+      ufoMode = (ufoMode === 'no_repeat') ? 'pure_random' : 'no_repeat';
+      const pill = document.getElementById('ufo-mode-pill');
+      const dockBtn = document.getElementById('btn-ufo-dock-mode');
+      if (pill) {
+        pill.textContent = (ufoMode === 'no_repeat') ? '🎯 Không lặp lại • ⏱️ Chuẩn' : '🎲 Ngẫu nhiên • ⏱️ Chuẩn';
+      }
+      if (dockBtn) {
+        dockBtn.textContent = (ufoMode === 'no_repeat') ? '🎯 Không Lặp' : '🎲 Ngẫu Nhiên';
+      }
+      sound.playTone(660, 'sine', 0.06, 0.15);
+    }
+
+    function resetUfoRound() {
+      ufoAbductedPool.clear();
+      ufoWinners = [];
+      ufoStudents.forEach(s => {
+        s.isAbducted = false;
+        s.abductedY = 0;
+      });
+      initUfoGame();
+      sound.playTone(440, 'triangle', 0.1, 0.15);
+    }
+
+    function updateUfoDockUI() {
+      const statusText = document.getElementById('ufo-dock-status-text');
+      const statusDot = document.getElementById('ufo-dock-status-dot');
+      const btnStart = document.getElementById('btn-ufo-dock-start');
+      const btnNext = document.getElementById('btn-ufo-dock-next');
+      const btnSpeak = document.getElementById('btn-ufo-dock-speak');
+      const btnStartTop = document.getElementById('btn-start-ufo-top');
+
+      const remaining = ufoStudents.filter(s => !ufoAbductedPool.has(s.id)).length;
+
+      if (ufoState === 'idle') {
+        if (statusText) statusText.textContent = `Sẵn sàng săn tìm đối tượng (Còn ${remaining}/${ufoStudents.length} HS)`;
+        if (statusDot) statusDot.style.background = '#34d399';
+        if (btnStart) { btnStart.style.display = 'inline-block'; btnStart.disabled = false; }
+        if (btnNext) btnNext.style.display = 'none';
+        if (btnSpeak) btnSpeak.style.display = 'none';
+        if (btnStartTop) btnStartTop.disabled = false;
+      } else if (ufoState === 'hunting' || ufoState === 'locking') {
+        if (statusText) statusText.textContent = 'Đĩa bay đang truy quét mục tiêu trên phố...';
+        if (statusDot) statusDot.style.background = '#f59e0b';
+        if (btnStart) { btnStart.style.display = 'inline-block'; btnStart.disabled = true; }
+        if (btnNext) btnNext.style.display = 'none';
+        if (btnSpeak) btnSpeak.style.display = 'none';
+        if (btnStartTop) btnStartTop.disabled = true;
+      } else if (ufoState === 'abducting') {
+        if (statusText) statusText.textContent = `Đang hút: ${ufoChosenStudent ? ufoChosenStudent.name : ''}...`;
+        if (statusDot) statusDot.style.background = '#a855f7';
+        if (btnStart) { btnStart.style.display = 'inline-block'; btnStart.disabled = true; }
+        if (btnNext) btnNext.style.display = 'none';
+        if (btnSpeak) btnSpeak.style.display = 'none';
+        if (btnStartTop) btnStartTop.disabled = true;
+      } else if (ufoState === 'finished') {
+        if (statusText) statusText.textContent = `Đã bắt: ${ufoChosenStudent ? ufoChosenStudent.name : ''} 🎉`;
+        if (statusDot) statusDot.style.background = '#06b6d4';
+        if (btnStart) btnStart.style.display = 'none';
+        if (btnNext) { btnNext.style.display = 'inline-block'; btnNext.disabled = false; }
+        if (btnSpeak) btnSpeak.style.display = 'inline-block';
+        if (btnStartTop) btnStartTop.disabled = false;
+      }
+    }
+
+    function renderUfoWinnersList() {
+      const badge = document.getElementById('badge-ufo-finished-count');
+      if (badge) badge.textContent = `${ufoWinners.length}/${ufoTargetCount}`;
+      const list = document.getElementById('ufo-winners-list');
+      if (!list) return;
+
+      if (ufoWinners.length === 0) {
+        list.innerHTML = `
+          <li style="color: var(--text-muted); font-size: 13px; text-align: center; margin-top: 30px;">
+            Bấm "BẮT ĐẦU GỌI TÊN" hoặc phím Space để đĩa bay săn tìm học sinh...
+          </li>
+        `;
+        return;
+      }
+
+      list.innerHTML = ufoWinners.map((w, idx) => {
+        let medal = `#${idx + 1}`;
+        let medalClass = '';
+        if (idx === 0) { medal = '🥇'; medalClass = 'gold'; }
+        else if (idx === 1) { medal = '🥈'; medalClass = 'silver'; }
+        else if (idx === 2) { medal = '🥉'; medalClass = 'bronze'; }
+
+        return `
+          <li class="winner-item ${medalClass}">
+            <div class="winner-rank">${medal}</div>
+            <div class="winner-avatar" style="background: ${w.color || '#a855f7'}">
+              🛸
+            </div>
+            <div class="winner-info" style="flex: 1; min-width: 0;">
+              <div class="winner-name" style="font-weight: 800; font-size: 13px; color: #fff; truncate;">
+                ${w.name}
+              </div>
+              <div style="font-size: 11px; color: #a5f3fc; opacity: 0.9;">
+                ${w.action || 'Đối tượng nghiên cứu'}
+              </div>
+            </div>
+          </li>
+        `;
+      }).join('');
+    }
+
+    function startUfoLoop() {
+      if (ufoAnimId) cancelAnimationFrame(ufoAnimId);
+
+      let lastTime = performance.now();
+
+      function loop(currentTime) {
+        const dt = Math.min((currentTime - lastTime) / 1000, 0.1);
+        lastTime = currentTime;
+
+        updateUfoGame(dt, currentTime);
+        renderUfoCanvas(currentTime);
+
+        const scr = document.getElementById('ufo-screen');
+        if (scr && scr.style.display !== 'none') {
+          ufoAnimId = requestAnimationFrame(loop);
+        }
+      }
+
+      ufoAnimId = requestAnimationFrame(loop);
+    }
+
+    function updateUfoGame(dt, now) {
+      const timeSec = now / 1000;
+      ufo.lightsPhase += dt * 4;
+
+      // Speed multipliers
+      let speedMult = 1.0;
+      if (ufoSpeed === 'slow') speedMult = 0.65;
+      else if (ufoSpeed === 'fast') speedMult = 1.55;
+
+      // 1. STATE: IDLE
+      if (ufoState === 'idle') {
+        ufo.targetY = 110 + Math.sin(timeSec * 2.2) * 8;
+        // UFO slowly cruises back and forth
+        if (!ufo.patrolDir) ufo.patrolDir = 1;
+        ufo.targetX += ufo.patrolDir * dt * 40;
+        if (ufo.targetX > ufoWorldWidth - 160) ufo.patrolDir = -1;
+        if (ufo.targetX < 160) ufo.patrolDir = 1;
+
+        ufo.x += (ufo.targetX - ufo.x) * dt * 2.5;
+        ufo.y += (ufo.targetY - ufo.y) * dt * 2.5;
+        ufo.tilt = (ufo.targetX - ufo.x) * 0.001;
+      }
+
+      // 2. STATE: HUNTING (FLYING TO TARGET LOCK)
+      else if (ufoState === 'hunting') {
+        const curTarget = ufoFakeLocks[ufoFakeLockIdx];
+        if (curTarget) {
+          ufo.targetX = curTarget.x;
+          ufo.targetY = 115 + Math.sin(timeSec * 3) * 6;
+
+          const dx = ufo.targetX - ufo.x;
+          ufo.x += dx * dt * 4.2 * speedMult;
+          ufo.y += (ufo.targetY - ufo.y) * dt * 3.5;
+          ufo.tilt = Math.max(-0.25, Math.min(0.25, dx * 0.003));
+
+          // When UFO is closely aligned above current target
+          if (Math.abs(dx) < 18) {
+            ufoState = 'locking';
+            ufoLockTimer = 0;
+            curTarget.scannedTimer = 0.6;
+            curTarget.jumpY = -12;
+            sound.playUfoLock();
+          }
+        }
+      }
+
+      // 3. STATE: LOCKING (SUSPENSE PAUSE OVER STUDENT)
+      else if (ufoState === 'locking') {
+        const curTarget = ufoFakeLocks[ufoFakeLockIdx];
+        ufoLockTimer += dt;
+        ufo.x += (curTarget.x - ufo.x) * dt * 6;
+        ufo.tilt *= 0.85;
+
+        // Beam pulses with high energy
+        ufo.beamPower = 0.8 + Math.sin(timeSec * 20) * 0.2;
+
+        const holdDuration = (ufoSpeed === 'slow' ? 0.6 : (ufoSpeed === 'fast' ? 0.25 : 0.42));
+
+        if (ufoLockTimer >= holdDuration) {
+          const isFinal = (ufoFakeLockIdx === ufoFakeLocks.length - 1);
+          if (isFinal) {
+            // LOCK COMPLETED ON REAL WINNER! START ABDUCTION!
+            ufoState = 'abducting';
+            ufoAbductProgress = 0;
+            sound.playUfoBeam();
+            updateUfoDockUI();
+          } else {
+            // Fake lock! Move on to next target
+            ufoFakeLockIdx++;
+            ufoState = 'hunting';
+            sound.playUfoScan();
+          }
+        }
+      }
+
+      // 4. STATE: ABDUCTING (STUDENT FLOATS UP INTO SAUCER)
+      else if (ufoState === 'abducting') {
+        const student = ufoChosenStudent;
+        if (student) {
+          const liftSpeed = (ufoSpeed === 'slow' ? 0.5 : (ufoSpeed === 'fast' ? 1.0 : 0.72));
+          ufoAbductProgress += dt * liftSpeed;
+
+          // Student floats smoothly from baseY (480) up to UFO underbelly (140)
+          const totalDist = 480 - (ufo.y + 25);
+          student.abductedY = ufoAbductProgress * totalDist;
+
+          // Add beam rising sparkle particles
+          if (Math.random() > 0.3) {
+            ufoParticles.push({
+              x: student.x + (Math.random() - 0.5) * 50,
+              y: student.baseY - student.abductedY + (Math.random() - 0.5) * 30,
+              vx: (Math.random() - 0.5) * 20,
+              vy: -70 - Math.random() * 80,
+              r: 2 + Math.random() * 3,
+              alpha: 1.0,
+              color: Math.random() > 0.5 ? '#67e8f9' : '#fde047'
+            });
+          }
+
+          if (ufoAbductProgress >= 1.0) {
+            // Student reached UFO! Bright flash!
+            ufoState = 'beamed';
+            student.isAbducted = true;
+            ufoAbductedPool.add(student.id);
+            ufo.flashAlpha = 1.0;
+            sound.playUfoVictory();
+
+            // Add celebration confetti
+            for (let i = 0; i < 70; i++) {
+              ufoConfetti.push({
+                x: ufo.x + (Math.random() - 0.5) * 60,
+                y: ufo.y + 20,
+                vx: (Math.random() - 0.5) * 350,
+                vy: -80 - Math.random() * 220,
+                color: MARBLE_COLORS[i % MARBLE_COLORS.length],
+                r: 3 + Math.random() * 4,
+                rot: Math.random() * Math.PI * 2,
+                vrot: (Math.random() - 0.5) * 10
+              });
+            }
+
+            // Record winner
+            const winEntry = {
+              id: student.id,
+              name: student.name,
+              nickname: student.nickname,
+              color: student.color,
+              action: student.action,
+              rank: ufoWinners.length + 1
+            };
+            ufoWinners.push(winEntry);
+            renderUfoWinnersList();
+
+            // Trigger voice reading
+            speakUfoCurrentWinner();
+
+            setTimeout(() => {
+              ufoState = 'finished';
+              ufo.bannerAlpha = 1.0;
+              updateUfoDockUI();
+
+              // If target reached, reveal podium button
+              if (ufoWinners.length >= ufoTargetCount) {
+                const btnPod = document.getElementById('btn-podium-ufo');
+                if (btnPod) btnPod.style.display = 'block';
+                currentWinners = ufoWinners.map((w, idx) => ({
+                  ...w,
+                  rank: idx + 1,
+                  time: `00:0${idx + 5}`
+                }));
+              }
+            }, 300);
+          }
+        }
+      }
+
+      // Smooth camera pan toward UFO
+      const viewW = 960;
+      ufoTargetCameraX = Math.max(0, Math.min(ufoWorldWidth - viewW, ufo.x - viewW / 2));
+      ufoCameraX += (ufoTargetCameraX - ufoCameraX) * dt * 4;
+
+      // Update student animation jumps & reactions
+      ufoStudents.forEach(s => {
+        if (s.scannedTimer > 0) s.scannedTimer -= dt;
+        if (s.jumpY < 0) s.jumpY += dt * 40;
+        else s.jumpY = 0;
+      });
+
+      // Update beam particles
+      for (let i = ufoParticles.length - 1; i >= 0; i--) {
+        const p = ufoParticles[i];
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.alpha -= dt * 1.5;
+        if (p.alpha <= 0) ufoParticles.splice(i, 1);
+      }
+
+      // Update confetti
+      for (let i = ufoConfetti.length - 1; i >= 0; i--) {
+        const c = ufoConfetti[i];
+        c.x += c.vx * dt;
+        c.y += c.vy * dt;
+        c.vy += 380 * dt; // gravity
+        c.rot += c.vrot * dt;
+        if (c.y > 620) ufoConfetti.splice(i, 1);
+      }
+
+      // Fade flash & banner
+      if (ufo.flashAlpha > 0) ufo.flashAlpha -= dt * 2.5;
+    }
+
+    /* ====================================================================
+       RENDER UFO SCENE ON CANVAS
+       ==================================================================== */
+    function renderUfoCanvas(currentTime) {
+      if (!ufoCtx || !ufoCanvas) return;
+      const ctx = ufoCtx;
+      const W = ufoCanvas.width;
+      const H = ufoCanvas.height;
+      const timeSec = (currentTime || performance.now()) / 1000;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // 1. SKY GRADIENT
+      const skyGrad = ctx.createLinearGradient(0, 0, 0, 480);
+      skyGrad.addColorStop(0, '#060919');
+      skyGrad.addColorStop(0.65, '#0c1633');
+      skyGrad.addColorStop(1, '#1e1b4b');
+      ctx.fillStyle = skyGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // 2. STARS (PARALLAX 0.3)
+      const starOffset = ufoCameraX * 0.2;
+      ufoStars.forEach(s => {
+        const sx = (s.x - starOffset + ufoWorldWidth) % ufoWorldWidth;
+        if (sx >= -10 && sx <= W + 10) {
+          const a = s.alpha + Math.sin(timeSec * 3 + s.x) * 0.25;
+          ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0.1, Math.min(1, a))})`;
+          ctx.beginPath();
+          ctx.arc(sx, s.y, s.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+
+      // 3. GLOWING MOON
+      const moonX = W - 140 - (ufoCameraX * 0.1);
+      const moonY = 80;
+      // Moon glow
+      const moonHalo = ctx.createRadialGradient(moonX, moonY, 15, moonX, moonY, 65);
+      moonHalo.addColorStop(0, 'rgba(254, 240, 138, 0.45)');
+      moonHalo.addColorStop(1, 'rgba(254, 240, 138, 0)');
+      ctx.fillStyle = moonHalo;
+      ctx.beginPath();
+      ctx.arc(moonX, moonY, 65, 0, Math.PI * 2);
+      ctx.fill();
+      // Moon body
+      ctx.fillStyle = '#fef08a';
+      ctx.beginPath();
+      ctx.arc(moonX, moonY, 26, 0, Math.PI * 2);
+      ctx.fill();
+      // Moon craters
+      ctx.fillStyle = '#fde047';
+      ctx.beginPath();
+      ctx.arc(moonX - 7, moonY - 5, 5, 0, Math.PI * 2);
+      ctx.arc(moonX + 9, moonY + 6, 7, 0, Math.PI * 2);
+      ctx.arc(moonX - 5, moonY + 11, 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 4. CITY SKYLINE (PARALLAX 0.5)
+      ctx.save();
+      ctx.translate(-ufoCameraX * 0.5, 0);
+      ufoBuildings.forEach(b => {
+        // Building silhouette
+        ctx.fillStyle = b.color;
+        ctx.fillRect(b.x, 480 - b.h, b.w, b.h);
+
+        // Windows
+        b.windows.forEach(w => {
+          const wx = b.x + 8 + w.c * 14;
+          const wy = 480 - b.h + 16 + w.r * 18;
+          ctx.fillStyle = w.color;
+          ctx.fillRect(wx, wy, 7, 10);
+        });
+
+        // Rooftop antenna with blinking warning light
+        if (b.hasAntenna) {
+          const ax = b.x + b.w / 2;
+          const ay = 480 - b.h;
+          ctx.strokeStyle = '#475569';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(ax, ay);
+          ctx.lineTo(ax, ay - 24);
+          ctx.stroke();
+
+          // Blinking red beacon
+          const blink = Math.sin(timeSec * 4 + b.x) > 0 ? 1 : 0.2;
+          ctx.fillStyle = `rgba(244, 63, 94, ${blink})`;
+          ctx.beginPath();
+          ctx.arc(ax, ay - 24, 3, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+      ctx.restore();
+
+      // 5. SIDEWALK & STREET (WORLD COORDINATES)
+      ctx.save();
+      ctx.translate(-ufoCameraX, 0);
+
+      // Sidewalk pavement (y: 470 to 540)
+      const pavementGrad = ctx.createLinearGradient(0, 470, 0, 540);
+      pavementGrad.addColorStop(0, '#1e293b');
+      pavementGrad.addColorStop(1, '#0f172a');
+      ctx.fillStyle = pavementGrad;
+      ctx.fillRect(0, 470, ufoWorldWidth, 70);
+
+      // Sidewalk curb line
+      ctx.fillStyle = '#334155';
+      ctx.fillRect(0, 538, ufoWorldWidth, 4);
+
+      // Street Asphalt (y: 542 to 600)
+      ctx.fillStyle = '#090d16';
+      ctx.fillRect(0, 542, ufoWorldWidth, 58);
+
+      // Road dashed markings
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 3;
+      ctx.setLineDash([25, 20]);
+      ctx.beginPath();
+      ctx.moveTo(0, 572);
+      ctx.lineTo(ufoWorldWidth, 572);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Streetlights and warm light cones onto sidewalk
+      ufoStreetLights.forEach(lamp => {
+        // Light cone on ground
+        const lightGrad = ctx.createRadialGradient(lamp.x, 475, 10, lamp.x, 490, 80);
+        lightGrad.addColorStop(0, 'rgba(253, 230, 138, 0.22)');
+        lightGrad.addColorStop(1, 'rgba(253, 230, 138, 0)');
+        ctx.fillStyle = lightGrad;
+        ctx.beginPath();
+        ctx.ellipse(lamp.x, 500, 75, 26, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Lamp post pole
+        ctx.strokeStyle = '#64748b';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(lamp.x, 475);
+        ctx.lineTo(lamp.x, 370);
+        ctx.quadraticCurveTo(lamp.x, 345, lamp.x + 18, 345);
+        ctx.stroke();
+
+        // Lamp head & bulb
+        ctx.fillStyle = '#fde047';
+        ctx.beginPath();
+        ctx.arc(lamp.x + 18, 347, 5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // 6. DRAW TRACTOR BEAM (IF ACTIVE)
+      if (ufo.beamActive || ufoState === 'hunting' || ufoState === 'locking' || ufoState === 'abducting') {
+        const emitterX = ufo.x;
+        const emitterY = ufo.y + 22;
+        const groundTargetX = (ufoState === 'abducting' && ufoChosenStudent) ? ufoChosenStudent.x : ufo.x;
+        const beamBottomW = 140;
+
+        // Conical gradient
+        const beamGrad = ctx.createLinearGradient(emitterX, emitterY, emitterX, 480);
+        const pwr = ufo.beamPower || 0.6;
+        beamGrad.addColorStop(0, `rgba(34, 211, 238, ${0.85 * pwr})`);
+        beamGrad.addColorStop(0.4, `rgba(6, 182, 212, ${0.45 * pwr})`);
+        beamGrad.addColorStop(1, `rgba(14, 165, 233, ${0.12 * pwr})`);
+
+        ctx.fillStyle = beamGrad;
+        ctx.beginPath();
+        ctx.moveTo(emitterX - 18, emitterY);
+        ctx.lineTo(groundTargetX - beamBottomW / 2, 490);
+        ctx.lineTo(groundTargetX + beamBottomW / 2, 490);
+        ctx.lineTo(emitterX + 18, emitterY);
+        ctx.closePath();
+        ctx.fill();
+
+        // Glowing oval spotlight on sidewalk
+        const spotGrad = ctx.createRadialGradient(groundTargetX, 490, 8, groundTargetX, 490, beamBottomW / 2);
+        spotGrad.addColorStop(0, `rgba(103, 232, 249, ${0.75 * pwr})`);
+        spotGrad.addColorStop(1, 'rgba(103, 232, 249, 0)');
+        ctx.fillStyle = spotGrad;
+        ctx.beginPath();
+        ctx.ellipse(groundTargetX, 490, beamBottomW / 2, 18, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Animated light rings inside beam
+        const ringCount = 4;
+        for (let r = 0; r < ringCount; r++) {
+          const ringProgress = (timeSec * 1.5 + (r / ringCount)) % 1.0;
+          const ry = (ufoState === 'abducting')
+            ? (480 - ringProgress * (480 - emitterY)) // upwards
+            : (emitterY + ringProgress * (480 - emitterY)); // downwards
+          const rw = 25 + ringProgress * (beamBottomW / 2 - 15);
+
+          ctx.strokeStyle = `rgba(165, 243, 252, ${(1 - ringProgress) * 0.7 * pwr})`;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.ellipse(groundTargetX, ry, rw, rw * 0.22, 0, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+      }
+
+      // 7. DRAW STUDENTS ON SIDEWALK
+      ufoStudents.forEach((student, idx) => {
+        drawChibiStudent(ctx, student, timeSec);
+      });
+
+      // 8. DRAW BEAM RISING PARTICLES
+      ufoParticles.forEach(p => {
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+      });
+
+      // 9. DRAW UFO FLYING SAUCER
+      drawUfoSaucer(ctx, ufo, timeSec);
+
+      // 10. DRAW CONFETTI
+      ufoConfetti.forEach(c => {
+        ctx.save();
+        ctx.translate(c.x, c.y);
+        ctx.rotate(c.rot);
+        ctx.fillStyle = c.color;
+        ctx.fillRect(-c.r, -c.r / 2, c.r * 2, c.r);
+        ctx.restore();
+      });
+
+      ctx.restore(); // restore camera transform
+
+      // 11. SCREEN LIGHT FLASH (ON ABDUCTION CAPTURE)
+      if (ufo.flashAlpha > 0) {
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, ufo.flashAlpha)})`;
+        ctx.fillRect(0, 0, W, H);
+      }
+
+      // 12. IN-GAME CELEBRATION HOLO-BANNER (OVERLAY)
+      if (ufoState === 'finished' && ufoChosenStudent) {
+        drawCelebrationBanner(ctx, ufoChosenStudent, W, H, timeSec);
+      }
+    }
+
+    /* ====================================================================
+       DRAW CHIBI STUDENT CHARACTER
+       ==================================================================== */
+    function drawChibiStudent(ctx, s, timeSec) {
+      if (s.isAbducted && ufoState !== 'abducting') {
+        // Student is already safely inside UFO
+        return;
+      }
+
+      const isLifting = (ufoState === 'abducting' && s === ufoChosenStudent);
+      const currY = s.baseY - (isLifting ? s.abductedY : 0) + s.jumpY;
+      const bobY = isLifting ? Math.sin(timeSec * 6) * 4 : Math.sin(timeSec * 3 + s.bobPhase) * 3;
+      const drawY = currY + bobY;
+      const drawX = s.x;
+
+      ctx.save();
+
+      // Ground Shadow
+      const shadowScale = isLifting ? Math.max(0.2, 1 - (s.abductedY / 300)) : 1.0;
+      ctx.fillStyle = `rgba(0, 0, 0, ${0.4 * shadowScale})`;
+      ctx.beginPath();
+      ctx.ellipse(drawX, s.baseY + 4, 18 * shadowScale, 6 * shadowScale, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // If being abducted, glowing aura around student
+      if (isLifting) {
+        const auraGrad = ctx.createRadialGradient(drawX, drawY - 25, 10, drawX, drawY - 25, 45);
+        auraGrad.addColorStop(0, 'rgba(103, 232, 249, 0.6)');
+        auraGrad.addColorStop(1, 'rgba(103, 232, 249, 0)');
+        ctx.fillStyle = auraGrad;
+        ctx.beginPath();
+        ctx.arc(drawX, drawY - 25, 45, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Legs & Shoes
+      ctx.fillStyle = '#0f172a';
+      if (isLifting) {
+        // Kicking legs
+        const kick1 = Math.sin(timeSec * 8) * 5;
+        const kick2 = -kick1;
+        ctx.fillRect(drawX - 9, drawY - 8 + kick1, 6, 9);
+        ctx.fillRect(drawX + 3, drawY - 8 + kick2, 6, 9);
+      } else {
+        ctx.fillRect(drawX - 8, drawY - 8, 5, 8);
+        ctx.fillRect(drawX + 3, drawY - 8, 5, 8);
+      }
+
+      // Body / Shirt (Color matched with student's assigned color)
+      const shirtGrad = ctx.createLinearGradient(drawX - 12, drawY - 26, drawX + 12, drawY - 8);
+      shirtGrad.addColorStop(0, s.color || '#3b82f6');
+      shirtGrad.addColorStop(1, '#1e293b');
+      ctx.fillStyle = shirtGrad;
+      ctx.beginPath();
+      ctx.roundRect(drawX - 12, drawY - 26, 24, 19, [6, 6, 3, 3]);
+      ctx.fill();
+
+      // Head
+      ctx.fillStyle = '#fed7aa'; // warm skin tone
+      ctx.beginPath();
+      ctx.arc(drawX, drawY - 35, 15, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Cheeks (blush)
+      ctx.fillStyle = 'rgba(244, 63, 94, 0.45)';
+      ctx.beginPath();
+      ctx.arc(drawX - 9, drawY - 32, 3, 0, Math.PI * 2);
+      ctx.arc(drawX + 9, drawY - 32, 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Hair
+      ctx.fillStyle = '#1e1b4b';
+      ctx.beginPath();
+      ctx.arc(drawX, drawY - 38, 16, Math.PI, Math.PI * 2);
+      ctx.lineTo(drawX + 15, drawY - 34);
+      ctx.lineTo(drawX + 11, drawY - 30);
+      ctx.lineTo(drawX - 11, drawY - 30);
+      ctx.lineTo(drawX - 15, drawY - 34);
+      ctx.closePath();
+      ctx.fill();
+
+      // Eyes & Expression
+      if (s.scannedTimer > 0) {
+        // Surprised big round eyes
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(drawX - 5, drawY - 35, 4, 0, Math.PI * 2);
+        ctx.arc(drawX + 5, drawY - 35, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#0f172a';
+        ctx.beginPath();
+        ctx.arc(drawX - 5, drawY - 35, 2, 0, Math.PI * 2);
+        ctx.arc(drawX + 5, drawY - 35, 2, 0, Math.PI * 2);
+        ctx.fill();
+        // O mouth
+        ctx.strokeStyle = '#0f172a';
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        ctx.arc(drawX, drawY - 28, 2.5, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Surprise exclamation mark
+        ctx.fillStyle = '#facc15';
+        ctx.font = 'bold 15px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('!', drawX + 18, drawY - 45);
+      } else if (isLifting) {
+        // Happy smiling face while being beamed up
+        ctx.strokeStyle = '#0f172a';
+        ctx.lineWidth = 1.8;
+        // Happy arch eyes
+        ctx.beginPath();
+        ctx.arc(drawX - 5, drawY - 35, 3, Math.PI, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(drawX + 5, drawY - 35, 3, Math.PI, Math.PI * 2);
+        ctx.stroke();
+        // Open joyful mouth
+        ctx.fillStyle = '#e11d48';
+        ctx.beginPath();
+        ctx.arc(drawX, drawY - 29, 3.5, 0, Math.PI);
+        ctx.fill();
+      } else {
+        // Cheerful friendly eyes
+        ctx.fillStyle = '#0f172a';
+        ctx.beginPath();
+        ctx.arc(drawX - 5, drawY - 35, 2.2, 0, Math.PI * 2);
+        ctx.arc(drawX + 5, drawY - 35, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+        // Sparkle in eye
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(drawX - 6, drawY - 36, 1, 0, Math.PI * 2);
+        ctx.arc(drawX + 4, drawY - 36, 1, 0, Math.PI * 2);
+        ctx.fill();
+        // Smile mouth
+        ctx.strokeStyle = '#0f172a';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(drawX, drawY - 30, 3, 0.1 * Math.PI, 0.9 * Math.PI);
+        ctx.stroke();
+      }
+
+      // Hands & Animated Props based on s.actionType
+      drawStudentProps(ctx, s, drawX, drawY, isLifting, timeSec);
+
+      // FLOATING NAME & ACTIVITY BADGE
+      drawStudentBadge(ctx, s, drawX, drawY - 55);
+
+      ctx.restore();
+    }
+
+    /* ====================================================================
+       DRAW CHIBI PROPS (RAMEN, WEIGHTS, HEADPHONES, ETC.)
+       ==================================================================== */
+    function drawStudentProps(ctx, s, x, y, isLifting, timeSec) {
+      if (isLifting) {
+        // Waving both hands in air
+        ctx.fillStyle = '#fed7aa';
+        ctx.beginPath();
+        ctx.arc(x - 14, y - 24, 4, 0, Math.PI * 2);
+        ctx.arc(x + 14, y - 24, 4, 0, Math.PI * 2);
+        ctx.fill();
+        return;
+      }
+
+      const actType = s.actionType % 8;
+
+      if (actType === 0) {
+        // Ramen noodles bowl with steam
+        ctx.fillStyle = '#dc2626';
+        ctx.beginPath();
+        ctx.arc(x, y - 16, 7, 0, Math.PI);
+        ctx.fill();
+        ctx.fillStyle = '#fde047';
+        ctx.fillRect(x - 5, y - 18, 10, 2);
+        // Steam wisps
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x - 2, y - 19);
+        ctx.lineTo(x - 1, y - 24);
+        ctx.moveTo(x + 2, y - 19);
+        ctx.lineTo(x + 3, y - 25);
+        ctx.stroke();
+      } else if (actType === 1) {
+        // Weights / dumbells bobbing up and down
+        const weightY = y - 18 + Math.sin(timeSec * 5) * 4;
+        ctx.strokeStyle = '#94a3b8';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x - 18, weightY);
+        ctx.lineTo(x - 8, weightY);
+        ctx.stroke();
+        ctx.fillStyle = '#334155';
+        ctx.fillRect(x - 20, weightY - 4, 4, 8);
+        ctx.fillRect(x - 10, weightY - 4, 4, 8);
+      } else if (actType === 2) {
+        // Over-ear headphones & musical notes
+        ctx.strokeStyle = '#06b6d4';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(x, y - 36, 17, Math.PI * 0.9, Math.PI * 2.1);
+        ctx.stroke();
+        ctx.fillStyle = '#06b6d4';
+        ctx.beginPath();
+        ctx.arc(x - 16, y - 35, 4.5, 0, Math.PI * 2);
+        ctx.arc(x + 16, y - 35, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+        // Floating music note
+        ctx.fillStyle = '#c084fc';
+        ctx.font = '11px sans-serif';
+        ctx.fillText('♪', x + 18, y - 40 + Math.sin(timeSec * 4) * 3);
+      } else if (actType === 3) {
+        // Boba milk tea cup
+        ctx.fillStyle = '#fed7aa';
+        ctx.fillRect(x + 7, y - 18, 7, 10);
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillRect(x + 9, y - 22, 2, 4); // straw
+      } else if (actType === 4) {
+        // Comic book
+        ctx.fillStyle = '#3b82f6';
+        ctx.beginPath();
+        ctx.moveTo(x - 7, y - 17);
+        ctx.lineTo(x, y - 15);
+        ctx.lineTo(x + 7, y - 17);
+        ctx.lineTo(x + 7, y - 8);
+        ctx.lineTo(x, y - 7);
+        ctx.lineTo(x - 7, y - 8);
+        ctx.closePath();
+        ctx.fill();
+      } else if (actType === 5) {
+        // Waving hand
+        const waveAngle = Math.sin(timeSec * 8) * 0.4;
+        ctx.save();
+        ctx.translate(x + 12, y - 22);
+        ctx.rotate(waveAngle);
+        ctx.fillStyle = '#fed7aa';
+        ctx.beginPath();
+        ctx.arc(0, -5, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      } else if (actType === 6) {
+        // Thinking question mark
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.fillText('?', x + 14, y - 42 + Math.sin(timeSec * 3) * 2);
+      } else {
+        // Sleepy Zzz
+        ctx.fillStyle = '#a5f3fc';
+        ctx.font = 'bold 10px sans-serif';
+        ctx.fillText('z', x + 14, y - 38);
+        ctx.font = 'bold 13px sans-serif';
+        ctx.fillText('Z', x + 20, y - 44);
+      }
+    }
+
+    /* ====================================================================
+       DRAW CHIBI NAME & ACTIVITY BADGE
+       ==================================================================== */
+    function drawStudentBadge(ctx, s, x, y) {
+      const nameText = s.name;
+      const actText = s.action || '';
+
+      ctx.font = 'bold 12px sans-serif';
+      const nameW = ctx.measureText(nameText).width;
+      ctx.font = '10px sans-serif';
+      const actW = ctx.measureText(actText).width;
+
+      const badgeW = Math.max(85, Math.max(nameW, actW) + 16);
+      const badgeH = 32;
+      const bx = x - badgeW / 2;
+      const by = y - badgeH;
+
+      // Badge background pill
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+      ctx.strokeStyle = (s.scannedTimer > 0) ? '#facc15' : 'rgba(168, 85, 247, 0.6)';
+      ctx.lineWidth = (s.scannedTimer > 0) ? 2.2 : 1.2;
+
+      ctx.beginPath();
+      ctx.roundRect(bx, by, badgeW, badgeH, 10);
+      ctx.fill();
+      ctx.stroke();
+
+      // Bottom little pointer triangle
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+      ctx.beginPath();
+      ctx.moveTo(x - 4, by + badgeH);
+      ctx.lineTo(x + 4, by + badgeH);
+      ctx.lineTo(x, by + badgeH + 4);
+      ctx.closePath();
+      ctx.fill();
+
+      // Name text
+      ctx.font = 'bold 11px sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.fillText(nameText, x, by + 13);
+
+      // Activity text
+      ctx.font = '9.5px sans-serif';
+      ctx.fillStyle = '#fde047';
+      ctx.fillText(actText, x, by + 26);
+    }
+
+    /* ====================================================================
+       DRAW ALIEN UFO SAUCER
+       ==================================================================== */
+    function drawUfoSaucer(ctx, u, timeSec) {
+      ctx.save();
+      ctx.translate(u.x, u.y);
+      ctx.rotate(u.tilt || 0);
+
+      // Saucer Hull Gradient
+      const hullGrad = ctx.createLinearGradient(0, -25, 0, 22);
+      hullGrad.addColorStop(0, '#f8fafc');
+      hullGrad.addColorStop(0.3, '#94a3b8');
+      hullGrad.addColorStop(0.7, '#475569');
+      hullGrad.addColorStop(1, '#1e293b');
+
+      // 1. Cockpit glass dome (Translucent cyan)
+      const domeGrad = ctx.createLinearGradient(0, -38, 0, -5);
+      domeGrad.addColorStop(0, 'rgba(103, 232, 249, 0.95)');
+      domeGrad.addColorStop(1, 'rgba(6, 182, 212, 0.55)');
+      ctx.fillStyle = domeGrad;
+      ctx.beginPath();
+      ctx.ellipse(0, -10, 28, 26, 0, Math.PI, Math.PI * 2);
+      ctx.fill();
+
+      // Specular shine on dome
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
+      ctx.beginPath();
+      ctx.ellipse(-8, -22, 14, 7, -0.3, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Cute green alien inside cockpit
+      ctx.fillStyle = '#84cc16';
+      // Head
+      ctx.beginPath();
+      ctx.arc(0, -14, 9, 0, Math.PI * 2);
+      ctx.fill();
+      // Antenna
+      ctx.strokeStyle = '#84cc16';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, -23);
+      ctx.lineTo(0, -30);
+      ctx.stroke();
+      ctx.fillStyle = '#facc15';
+      ctx.beginPath();
+      ctx.arc(0, -31, 2.5, 0, Math.PI * 2);
+      ctx.fill();
+      // Big glossy alien eyes
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath();
+      ctx.ellipse(-4, -14, 3, 4, -0.2, 0, Math.PI * 2);
+      ctx.ellipse(4, -14, 3, 4, 0.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(-4, -15, 1, 0, Math.PI * 2);
+      ctx.arc(4, -15, 1, 0, Math.PI * 2);
+      ctx.fill();
+      // Waving alien arm
+      const armWave = Math.sin(timeSec * 8) * 0.3;
+      ctx.strokeStyle = '#84cc16';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(8, -10);
+      ctx.lineTo(15 + armWave * 3, -15);
+      ctx.stroke();
+
+      // 2. Main Metallic Saucer Hull
+      ctx.fillStyle = hullGrad;
+      ctx.beginPath();
+      ctx.ellipse(0, 5, 68, 18, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+
+      // 3. Lower engine underbelly
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath();
+      ctx.ellipse(0, 12, 38, 9, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Tractor beam projector nozzle
+      const nozzleGrad = ctx.createRadialGradient(0, 15, 2, 0, 15, 16);
+      nozzleGrad.addColorStop(0, '#ffffff');
+      nozzleGrad.addColorStop(0.4, '#38bdf8');
+      nozzleGrad.addColorStop(1, '#0284c7');
+      ctx.fillStyle = nozzleGrad;
+      ctx.beginPath();
+      ctx.ellipse(0, 16, 16, 5, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 4. Perimeter LED Chasing Lights
+      const ledCount = 10;
+      const ledColors = ['#22d3ee', '#a855f7', '#facc15', '#34d399', '#f43f5e'];
+      for (let i = 0; i < ledCount; i++) {
+        const angle = (i / ledCount) * Math.PI * 2 + (u.lightsPhase || 0);
+        const lx = Math.cos(angle) * 60;
+        const ly = Math.sin(angle) * 11 + 5;
+        const color = ledColors[i % ledColors.length];
+
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(lx, ly, 3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Glow
+        ctx.fillStyle = `${color}44`;
+        ctx.beginPath();
+        ctx.arc(lx, ly, 6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    /* ====================================================================
+       DRAW CELEBRATION HOLOGRAPHIC BANNER (IN-GAME POPUP)
+       ==================================================================== */
+    function drawCelebrationBanner(ctx, student, W, H, timeSec) {
+      ctx.save();
+
+      const bw = Math.min(540, W - 40);
+      const bh = 140;
+      const bx = (W - bw) / 2;
+      const by = 135;
+
+      // Glow behind banner
+      const bannerGlow = ctx.createRadialGradient(W / 2, by + bh / 2, 40, W / 2, by + bh / 2, bw / 1.8);
+      bannerGlow.addColorStop(0, 'rgba(168, 85, 247, 0.35)');
+      bannerGlow.addColorStop(1, 'rgba(168, 85, 247, 0)');
+      ctx.fillStyle = bannerGlow;
+      ctx.fillRect(bx - 30, by - 30, bw + 60, bh + 60);
+
+      // Glass card background
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.94)';
+      ctx.strokeStyle = '#a855f7';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.roundRect(bx, by, bw, bh, 22);
+      ctx.fill();
+      ctx.stroke();
+
+      // Decorative top title badge
+      ctx.fillStyle = 'rgba(168, 85, 247, 0.3)';
+      ctx.beginPath();
+      ctx.roundRect(bx + 20, by + 12, bw - 40, 26, 12);
+      ctx.fill();
+
+      ctx.font = 'bold 12px sans-serif';
+      ctx.fillStyle = '#e9d5ff';
+      ctx.textAlign = 'center';
+      ctx.fillText('🛸 ĐÃ BẮT ĐƯỢC ĐỐI TƯỢNG NGHIÊN CỨU MAY MẮN!', W / 2, by + 29);
+
+      // Main Student Name
+      ctx.font = 'bold 26px sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(student.name, W / 2, by + 74);
+
+      // Activity subtitle
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillStyle = '#fde047';
+      ctx.fillText(student.action || 'Đối tượng nghiên cứu xuất sắc', W / 2, by + 104);
+
+      // Sparkles
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '16px sans-serif';
+      ctx.fillText('✨', bx + 35, by + 72);
+      ctx.fillText('✨', bx + bw - 35, by + 72);
+
+      ctx.restore();
+    }
+
+    // UFO screen buttons & event wiring
+    const btnStartUfoTop = document.getElementById('btn-start-ufo-top');
+    if (btnStartUfoTop) btnStartUfoTop.addEventListener('click', startUfoAbduction);
+
+    const btnStartUfoDock = document.getElementById('btn-ufo-dock-start');
+    if (btnStartUfoDock) btnStartUfoDock.addEventListener('click', startUfoAbduction);
+
+    const btnNextUfoDock = document.getElementById('btn-ufo-dock-next');
+    if (btnNextUfoDock) btnNextUfoDock.addEventListener('click', playNextUfoRound);
+
+    const btnSpeakUfoDock = document.getElementById('btn-ufo-dock-speak');
+    if (btnSpeakUfoDock) btnSpeakUfoDock.addEventListener('click', speakUfoCurrentWinner);
+
+    const btnSpeakUfoSide = document.getElementById('btn-speak-ufo');
+    if (btnSpeakUfoSide) btnSpeakUfoSide.addEventListener('click', speakUfoCurrentWinner);
+
+    const btnShuffleUfoDock = document.getElementById('btn-ufo-dock-shuffle');
+    if (btnShuffleUfoDock) btnShuffleUfoDock.addEventListener('click', shuffleUfoActivities);
+
+    const btnShuffleUfoTop = document.getElementById('btn-ufo-shuffle-top');
+    if (btnShuffleUfoTop) btnShuffleUfoTop.addEventListener('click', shuffleUfoActivities);
+
+    const btnModeUfoDock = document.getElementById('btn-ufo-dock-mode');
+    if (btnModeUfoDock) btnModeUfoDock.addEventListener('click', toggleUfoMode);
+
+    const btnResetUfo = document.getElementById('btn-reset-ufo');
+    if (btnResetUfo) btnResetUfo.addEventListener('click', resetUfoRound);
+
+    if (ufoCanvas) {
+      ufoCanvas.addEventListener('click', () => {
+        if (ufoState === 'idle') startUfoAbduction();
+        else if (ufoState === 'finished') playNextUfoRound();
+      });
+    }
+
 
     /* ====================================================================
        BẢO VỆ MÃ NGUỒN: CHẶN CHUỘT PHẢI, F12 & CÁC PHÍM TẮT DEVTOOLS
