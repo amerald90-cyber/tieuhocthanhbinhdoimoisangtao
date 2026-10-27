@@ -2541,6 +2541,18 @@
       border-color: #c084fc;
       box-shadow: 0 16px 40px rgba(168, 85, 247, 0.45);
     }
+    /* CARD 9: BỊT MẮT BẮT GÀ CON */
+    .card-catch {
+      background: linear-gradient(135deg, rgba(35, 24, 12, 0.95) 0%, rgba(22, 14, 6, 0.98) 100%);
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+    .card-catch:hover {
+      border-color: #fbbf24;
+      box-shadow: 0 16px 40px rgba(245, 158, 11, 0.45);
+    }
+    .badge-catch { background: linear-gradient(135deg, #f59e0b, #ea580c); color: #fff; font-weight: 800; }
+    .btn-catch-play { background: linear-gradient(135deg, #f59e0b, #d97706) !important; color: #fff !important; font-weight: 800; }
+
     .badge-ufo { background: linear-gradient(135deg, #a855f7, #06b6d4); color: #fff; font-weight: 800; }
     .btn-ufo-play { background: linear-gradient(135deg, #9333ea, #06b6d4) !important; color: #fff !important; font-weight: 800; }
     .card-fish:hover {
@@ -2557,7 +2569,7 @@
     .btn-fish-play { background: linear-gradient(135deg, #0284c7, #06b6d4) !important; color: #fff !important; font-weight: 800; }
 
     /* Screen layouts for wheel, rocket, gift, fish */
-    #wheel-screen, #rocket-screen, #gift-screen, #fish-screen, #ufo-screen {
+    #wheel-screen, #rocket-screen, #gift-screen, #fish-screen, #ufo-screen, #catch-screen {
       display: none;
       flex-direction: column;
       width: 100%;
@@ -3352,6 +3364,63 @@
             </svg>
           </div>
         </div>
+
+        <!-- CARD 9: BỊT MẮT BẮT GÀ CON (TRÒ CHƠI DÂN GIAN GỌI TÊN) -->
+        <div class="game-showcase-card card-catch" id="home-card-catch">
+          <div class="card-content-left">
+            <div class="card-tag badge-catch">🐔 TRÒ CHƠI DÂN GIAN • GỌI TÊN HỌC ĐƯỜNG</div>
+            <h2 class="card-game-title">BỊT MẮT BẮT GÀ CON</h2>
+            <p class="card-game-desc">
+              Sân sới làng quê rộn rã tiếng cười! Cậu bé đội nón lá bịt dải lụa đỏ rượt bắt đàn gà con trắng muốt siêu kute. Vồ hụt thót tim, tóm trúng bạn may mắn pháo hoa rực rỡ! 🐔🌾
+            </p>
+            <div class="card-btn-group">
+              <button type="button" class="btn-play-primary btn-catch-play" id="btn-home-play-catch">
+                <span>🐔 VÀO BẮT GÀ CON</span> <span style="font-size: 16px;">›</span>
+              </button>
+            </div>
+          </div>
+          <div class="card-visual-right">
+            <svg width="120" height="115" viewBox="0 0 120 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="chickCardGrad" cx="40%" cy="35%" r="60%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="70%" stop-color="#fef3c7"/>
+                  <stop offset="100%" stop-color="#fde68a"/>
+                </radialGradient>
+              </defs>
+              <!-- Đụn rơm vàng nền -->
+              <path d="M75,105 Q90,55 105,105 Z" fill="#f59e0b" opacity="0.8"/>
+              <path d="M80,105 Q92,65 102,105 Z" fill="#fde047" opacity="0.7"/>
+              <!-- Hàng rào tre làng quê -->
+              <line x1="10" y1="95" x2="115" y2="95" stroke="#92400e" stroke-width="2.5"/>
+              <line x1="20" y1="80" x2="20" y2="108" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+              <line x1="45" y1="78" x2="45" y2="108" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+              <line x1="70" y1="80" x2="70" y2="108" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+              <!-- Chú gà con / vịt con trắng béo tròn má hồng đậu góc phải -->
+              <ellipse cx="88" cy="92" rx="16" ry="14" fill="url(#chickCardGrad)"/>
+              <circle cx="94" cy="82" r="10" fill="url(#chickCardGrad)"/>
+              <ellipse cx="98" cy="85" rx="3" ry="1.8" fill="#ff7b00"/>
+              <circle cx="92" cy="81" r="1.8" fill="#0f172a"/>
+              <circle cx="93" cy="80.5" r="0.6" fill="#ffffff"/>
+              <circle cx="89" cy="85" r="2.5" fill="#f43f5e" opacity="0.6"/>
+              <path d="M78,88 Q72,92 76,96" stroke="#fbbf24" stroke-width="2.5" fill="none"/>
+              <!-- Cậu bé nón lá bịt mắt dải lụa đỏ đang vồ gà -->
+              <polygon points="40,32 15,52 65,52" fill="#fbbf24"/>
+              <line x1="15" y1="52" x2="65" y2="52" stroke="#d97706" stroke-width="1.5"/>
+              <line x1="40" y1="32" x2="40" y2="52" stroke="#d97706" stroke-width="1"/>
+              <circle cx="40" cy="58" r="12" fill="#fed7aa"/>
+              <rect x="28" y="54" width="24" height="6" rx="2" fill="#ef4444"/>
+              <path d="M28,57 Q18,52 14,58 Q12,65 8,62" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M28,58 Q20,62 16,70" stroke="#dc2626" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M36,65 Q40,68 44,65" stroke="#9a3412" stroke-width="1.5" fill="none"/>
+              <path d="M28,68 L52,68 L56,92 L24,92 Z" fill="#854d0e"/>
+              <path d="M28,72 L12,80 L8,74" stroke="#fed7aa" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <path d="M52,72 L68,78 L74,74" stroke="#fed7aa" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <text x="96" y="70" font-size="12" fill="#f59e0b" font-weight="bold">♪</text>
+              <text x="64" y="65" font-size="10" fill="#38bdf8" font-weight="bold">💦</text>
+            </svg>
+          </div>
+        </div>
       </div>
 
       <!-- NÚT MỞ NHANH BẢNG CÀI ĐẶT DANH SÁCH -->
@@ -3549,6 +3618,9 @@ Bùi Khánh Linh"></textarea>
             </button>
             <button type="button" class="game-tab-btn tab-ufo" data-gametab="ufo" id="tab-btn-setup-ufo">
               🛸 UFO Bắt Học Sinh
+            </button>
+            <button type="button" class="game-tab-btn tab-catch" data-gametab="catch" id="tab-btn-setup-catch">
+              🐔 Bịt Mắt Bắt Gà
             </button>
           </div>
         </div>
@@ -3800,6 +3872,21 @@ Bùi Khánh Linh"></textarea>
           </div>
           <button type="button" id="btn-open-ufo" class="btn btn-ufo-play" style="width: 100%; margin-top: 10px; padding: 13px 16px; font-size: 14px; font-weight: 800;">
             🛸 VÀO CHƠI UFO BẮT HỌC SINH NGAY
+          </button>
+        </div>
+
+        <!-- TAB CÀI ĐẶT 9: BỊT MẮT BẮT GÀ CON -->
+        <div id="setup-tab-content-catch" class="setup-tab-content-panel" style="display: none;">
+          <div style="background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.35); border-radius: 12px; padding: 12px; margin: 12px 0;">
+            <div style="font-weight: 700; color: #fbbf24; font-size: 13px;">🐔 Bịt Mắt Bắt Gà Con - Trò Chơi Dân Gian Gọi Tên:</div>
+            <ul style="margin: 6px 0 0 18px; font-size: 12px; color: var(--text-muted); line-height: 1.6;">
+              <li>Cậu bé nón lá bịt dải lụa đỏ đuổi bắt đàn gà con trắng muốt siêu đáng yêu trong sân sới làng quê.</li>
+              <li>Hiệu ứng vồ hụt thót tim, tóm trúng bạn may mắn tưng bừng pháo hoa, ngôi sao và âm thanh chúc mừng!</li>
+              <li>Tự động đồng bộ danh sách học sinh toàn hệ thống, tùy chọn không lặp hoặc ngẫu nhiên, đọc tên tiếng Việt.</li>
+            </ul>
+          </div>
+          <button type="button" id="btn-open-catch" class="btn btn-catch-play" style="width: 100%; margin-top: 10px; padding: 13px 16px; font-size: 14px; font-weight: 800; border-radius: 14px;">
+            🐔 VÀO CHƠI BỊT MẮT BẮT GÀ CON NGAY
           </button>
         </div></div>
       </div>
@@ -4589,6 +4676,104 @@ Bùi Khánh Linh"></textarea>
                   📢 Đọc tên
                 </button>
                 <button type="button" id="btn-reset-ufo" class="btn btn-secondary" style="flex: 1; font-size: 12px;">
+                  🔄 Đặt lại vòng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SCREEN 9: BỊT MẮT BẮT GÀ CON (FOLK GAME CHICK CATCHING)
+         ==================================================================== -->
+    <div id="catch-screen" class="screen" style="display: none;">
+      <div class="glass-panel race-top-bar" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 16px;">
+        <div class="race-top-left" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+          <button type="button" class="btn btn-secondary btn-back-home" style="padding: 7px 12px; font-size: 13px;" title="Về trang chủ">
+            🏠 Trang chủ
+          </button>
+          <button type="button" class="btn btn-secondary btn-back-setup" style="padding: 7px 12px; font-size: 13px;" title="Cài đặt">
+            ⚙️ Cài đặt
+          </button>
+          <button type="button" class="btn btn-primary btn-open-game-setup" data-game="catch" style="padding: 7px 14px; font-size: 13px; font-weight: 800; background: linear-gradient(135deg, #f59e0b, #ea580c); color: #fff; box-shadow: 0 0 12px rgba(245,158,11,0.4);" title="Nhập danh sách học sinh">
+            📝 Nhập Danh Sách
+          </button>
+          <div class="race-badge" id="catch-status-badge" style="background: rgba(245,158,11,0.18); border-color: rgba(245,158,11,0.5); color: #fbbf24;">
+            <span>🐔</span> BỊT MẮT BẮT GÀ CON
+          </div>
+          <!-- Mode badge pill -->
+          <div style="font-size: 12px; font-weight: 700; color: #fde68a; background: rgba(15,23,42,0.7); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(245,158,11,0.3);" id="catch-mode-pill">
+            🎯 Không lặp lại • 🌾 Sới làng quê
+          </div>
+        </div>
+
+        <div class="race-top-right" style="display: flex; align-items: center; gap: 8px;">
+          <button type="button" id="btn-catch-shuffle-top" class="btn btn-secondary" style="padding: 7px 14px; font-size: 12px; font-weight: 700; border-color: rgba(245,158,11,0.4); color: #fde68a;" title="Xáo trộn vị trí đàn gà con">
+            🔀 Đổi Vị Trí Gà
+          </button>
+          <button type="button" id="btn-start-catch-top" class="btn btn-catch-play" style="padding: 8px 18px; font-weight: 800; font-size: 13px; border-radius: 20px;">
+            🐔 BẮT ĐẦU BẮT GÀ
+          </button>
+        </div>
+      </div>
+
+      <div class="game-arena-layout">
+        <div class="game-canvas-wrap" id="catch-canvas-wrap" style="position: relative; overflow: hidden;">
+          <canvas id="catch-canvas" width="960" height="600" style="display: block; width: 100%; height: 100%;"></canvas>
+
+          <!-- IN-CANVAS FLOATING CONTROL DOCK (PHONG CÁCH SỚI LÀNG QUÊ THÔNG MINH) -->
+          <div id="catch-in-game-dock" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(20, 16, 12, 0.94); backdrop-filter: blur(12px); border: 1.5px solid rgba(245, 158, 11, 0.5); padding: 8px 16px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 10; max-width: 95%;">
+            <div id="catch-dock-status" style="font-size: 12px; font-weight: 700; color: #fbbf24; display: flex; align-items: center; gap: 6px; padding: 4px 10px; background: rgba(30,22,12,0.85); border-radius: 16px; border: 1px solid rgba(245,158,11,0.3); white-space: nowrap;">
+              <span id="catch-dock-status-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+              <span id="catch-dock-status-text">Đàn gà con đang tung tăng mổ thóc... Bấm bắt gà!</span>
+            </div>
+
+            <button type="button" id="btn-catch-dock-start" class="btn" style="background: linear-gradient(135deg, #10b981, #f59e0b); color: #022c22; font-weight: 800; font-size: 13px; padding: 7px 18px; border-radius: 20px; border: none; box-shadow: 0 0 14px rgba(245,158,11,0.5); cursor: pointer; white-space: nowrap;">
+              🐔 BẮT ĐẦU BẮT GÀ
+            </button>
+
+            <button type="button" id="btn-catch-dock-next" class="btn" style="display: none; background: linear-gradient(135deg, #f59e0b, #ea580c); color: #fff; font-weight: 800; font-size: 13px; padding: 7px 18px; border-radius: 20px; border: none; box-shadow: 0 0 14px rgba(245,158,11,0.5); cursor: pointer; white-space: nowrap;">
+              ▶ CHƠI TIẾP
+            </button>
+
+            <button type="button" id="btn-catch-dock-speak" class="btn btn-secondary" style="display: none; font-size: 12px; padding: 7px 12px; border-radius: 18px; font-weight: 700;" title="Phát lại giọng đọc tên">
+              🔊 Đọc lại
+            </button>
+
+            <button type="button" id="btn-catch-dock-shuffle" class="btn btn-secondary" style="font-size: 12px; padding: 7px 12px; border-radius: 18px; font-weight: 700; border-color: rgba(245,158,11,0.4); color: #fde68a;" title="Đổi các hoạt động của gà con">
+              🔀 Đổi Vị Trí Gà
+            </button>
+
+            <button type="button" id="btn-catch-dock-mode" class="btn btn-secondary" style="font-size: 12px; padding: 7px 12px; border-radius: 18px; font-weight: 700;" title="Chuyển chế độ Không lặp / Ngẫu nhiên">
+              🎯 Không Lặp
+            </button>
+          </div>
+        </div>
+
+        <div class="game-side-panel">
+          <div class="glass-panel" style="flex: 1; display: flex; flex-direction: column; padding: 14px; gap: 10px;">
+            <div class="panel-header" style="margin-bottom: 0;">
+              <h2>🐔 Bạn Nhỏ Đã Bắt Được</h2>
+              <span class="panel-badge badge-catch" id="badge-catch-finished-count">0/3</span>
+            </div>
+
+            <ul class="winners-list" id="catch-winners-list" style="flex: 1; overflow-y: auto;">
+              <li style="color: var(--text-muted); font-size: 13px; text-align: center; margin-top: 30px;">
+                Bấm "BẮT ĐẦU BẮT GÀ" hoặc phím Space để cậu bé bắt đầu đuổi bắt gà...
+              </li>
+            </ul>
+
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+              <button type="button" id="btn-podium-catch" class="btn btn-view-podium" style="display: none; width: 100%; font-size: 13px; font-weight: 800; background: linear-gradient(135deg, #eab308, #f59e0b); color: #000; box-shadow: 0 0 16px rgba(234,179,8,0.5);">
+                🏆 XEM BẢNG VINH DANH TOP
+              </button>
+              <div style="display: flex; gap: 8px;">
+                <button type="button" id="btn-speak-catch" class="btn btn-secondary" style="flex: 1; font-size: 12px;">
+                  📢 Đọc tên
+                </button>
+                <button type="button" id="btn-reset-catch" class="btn btn-secondary" style="flex: 1; font-size: 12px;">
                   🔄 Đặt lại vòng
                 </button>
               </div>
@@ -5936,7 +6121,8 @@ Bùi Khánh Linh"></textarea>
         rocket: document.getElementById('rocket-screen'),
         gift: document.getElementById('gift-screen'),
         fish: document.getElementById('fish-screen'),
-        ufo: document.getElementById('ufo-screen')
+        ufo: document.getElementById('ufo-screen'),
+        catch: document.getElementById('catch-screen')
       };
 
       // Dừng triệt để tất cả vòng lặp render đồ họa nền để tránh giật lag
@@ -5967,6 +6153,10 @@ Bùi Khánh Linh"></textarea>
       if (screenId !== 'ufo' && typeof ufoAnimId !== 'undefined' && ufoAnimId) {
         cancelAnimationFrame(ufoAnimId);
         ufoAnimId = null;
+      }
+      if (screenId !== 'catch' && typeof catchAnimId !== 'undefined' && catchAnimId) {
+        cancelAnimationFrame(catchAnimId);
+        catchAnimId = null;
       }
 
       if (typeof stopConfetti === 'function') {
@@ -12240,7 +12430,1488 @@ Bùi Khánh Linh"></textarea>
     if (btnOpenUfo) btnOpenUfo.addEventListener('click', openUfoScreen);
 
 
-    const btnHomeOpenSetup = document.getElementById('btn-home-open-setup');
+/* ====================================================================
+   GAME ENGINE 9: BỊT MẮT BẮT GÀ CON (TRÒ CHƠI DÂN GIAN GỌI TÊN HỌC ĐƯỜNG)
+   ==================================================================== */
+let catchCanvas = document.getElementById('catch-canvas');
+let catchCtx = catchCanvas ? catchCanvas.getContext('2d') : null;
+let catchAnimId = null;
+let catchState = 'idle'; // 'idle' | 'stalking' | 'fake_lunge' | 'missed' | 'pouncing' | 'celebrating' | 'finished'
+let catchChicks = [];
+let catchWinners = [];
+let catchTargetCount = 3;
+let catchChosenChick = null;
+let catchCaughtPool = new Set();
+let catchMode = 'no_repeat'; // 'no_repeat' | 'pure_random'
+let catchLastTime = performance.now();
+
+// Boy Character State
+let catchBoy = {
+  x: 480,
+  y: 350,
+  targetX: 480,
+  targetY: 350,
+  vx: 0,
+  vy: 0,
+  facing: 1, // 1: right, -1: left
+  walkPhase: 0,
+  blindfoldLift: 0, // 0: over eyes, 1: lifted on forehead
+  armPhase: 0,
+  pose: 'idle', // 'idle' | 'stalk' | 'lunge' | 'stumble' | 'celebrate'
+  stumbleTimer: 0,
+  jumpY: 0,
+  lungeProgress: 0,
+  startX: 480,
+  startY: 350
+};
+
+// Sequence control
+let catchSequence = [];
+let catchSeqIdx = 0;
+let catchSeqTimer = 0;
+let catchParticles = [];
+let catchConfetti = [];
+let catchFeathers = [];
+
+// Buntings / Pennant flags in background
+const CATCH_FLAGS = [
+  { color: '#ef4444', h: 18 },
+  { color: '#facc15', h: 22 },
+  { color: '#3b82f6', h: 19 },
+  { color: '#10b981', h: 24 },
+  { color: '#ec4899', h: 20 },
+  { color: '#f97316', h: 22 },
+  { color: '#8b5cf6', h: 18 },
+  { color: '#06b6d4', h: 21 },
+  { color: '#eab308', h: 20 },
+  { color: '#14b8a6', h: 19 }
+];
+
+// Sound FX using Web Audio API
+function playCatchSfx(type) {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    if (!window._catchAudioCtx) window._catchAudioCtx = new AudioCtx();
+    const ctx = window._catchAudioCtx;
+    if (ctx.state === 'suspended') ctx.resume();
+
+    const now = ctx.currentTime;
+    if (type === 'peep') {
+      // Tiếng gà con kêu chíp chíp trong trẻo
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1800, now);
+      osc.frequency.exponentialRampToValueAtTime(2600, now + 0.08);
+      osc.frequency.exponentialRampToValueAtTime(2200, now + 0.16);
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.19);
+    } else if (type === 'panic') {
+      // Tiếng gà con hoảng hốt quang quác
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(2400, now);
+      osc.frequency.linearRampToValueAtTime(3200, now + 0.05);
+      osc.frequency.linearRampToValueAtTime(1600, now + 0.12);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.15);
+    } else if (type === 'whoosh') {
+      // Cậu bé vồ hụt gió rít
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(280, now);
+      osc.frequency.exponentialRampToValueAtTime(80, now + 0.22);
+      gain.gain.setValueAtTime(0.3, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.25);
+    } else if (type === 'boing') {
+      // Gà con nhảy né hụt vui nhộn
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(350, now);
+      osc.frequency.exponentialRampToValueAtTime(850, now + 0.15);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.2);
+    } else if (type === 'triumph') {
+      // Bắt trúng - hợp âm chiến thắng tưng bừng làng quê
+      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.09);
+        gain.gain.setValueAtTime(0.22, now + idx * 0.09);
+        gain.gain.exponentialRampToValueAtTime(0.005, now + idx * 0.09 + 0.45);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + idx * 0.09);
+        osc.stop(now + idx * 0.09 + 0.46);
+      });
+    }
+  } catch (err) {
+    // Bỏ qua lỗi audio context trên một số trình duyệt
+  }
+}
+
+// Khởi tạo danh sách các chú gà con từ danh sách học sinh
+function initCatchGame() {
+  if (!catchCanvas) {
+    catchCanvas = document.getElementById('catch-canvas');
+    if (catchCanvas) catchCtx = catchCanvas.getContext('2d');
+  }
+
+  const rawRoster = (typeof roster !== 'undefined' && Array.isArray(roster) && roster.length > 0)
+    ? roster
+    : [
+        { id: 1, name: 'Bảo Châu' },
+        { id: 2, name: 'Minh Khang' },
+        { id: 3, name: 'Khánh An' },
+        { id: 4, name: 'Tuấn Kiệt' },
+        { id: 5, name: 'Hải Đăng' },
+        { id: 6, name: 'Thùy Dung' },
+        { id: 7, name: 'Đức Phúc' },
+        { id: 8, name: 'Gia Hưng' }
+      ];
+
+  const arenaBounds = {
+    minX: 140,
+    maxX: 820,
+    minY: 270,
+    maxY: 510
+  };
+
+  const ACCESSORIES = ['glasses', 'leaf_hat', 'bow', 'none', 'none'];
+
+  catchChicks = rawRoster.map((item, idx) => {
+    // Tọa độ phân bố tự nhiên trong sới đất
+    const ang = (idx / rawRoster.length) * Math.PI * 2;
+    const radX = 220 + (idx % 3) * 60;
+    const radY = 90 + (idx % 2) * 35;
+    const cx = 480 + Math.cos(ang) * radX;
+    const cy = 380 + Math.sin(ang) * radY;
+
+    const posX = Math.max(arenaBounds.minX, Math.min(arenaBounds.maxX, cx + (Math.random() - 0.5) * 40));
+    const posY = Math.max(arenaBounds.minY, Math.min(arenaBounds.maxY, cy + (Math.random() - 0.5) * 30));
+
+    return {
+      id: item.id || (idx + 1),
+      name: item.name || ('Học sinh ' + (idx + 1)),
+      x: posX,
+      y: posY,
+      baseY: posY,
+      vx: (Math.random() - 0.5) * 20,
+      vy: (Math.random() - 0.5) * 15,
+      facing: Math.random() > 0.5 ? 1 : -1,
+      size: 24,
+      accessory: ACCESSORIES[idx % ACCESSORIES.length],
+      state: 'idle', // 'idle' | 'pecking' | 'running' | 'panicking' | 'caught'
+      peckTimer: Math.random() * 3,
+      peckAngle: 0,
+      wingPhase: Math.random() * Math.PI * 2,
+      hopY: 0,
+      panicTimer: 0,
+      sweatTimer: 0,
+      exclaimTimer: 0,
+      sparkleTimer: 0
+    };
+  });
+
+  // Cậu bé ở trung tâm sới đất
+  catchBoy.x = 480;
+  catchBoy.y = 350;
+  catchBoy.targetX = 480;
+  catchBoy.targetY = 350;
+  catchBoy.vx = 0;
+  catchBoy.vy = 0;
+  catchBoy.facing = 1;
+  catchBoy.walkPhase = 0;
+  catchBoy.blindfoldLift = 0;
+  catchBoy.pose = 'idle';
+  catchBoy.stumbleTimer = 0;
+  catchBoy.jumpY = 0;
+
+  catchState = 'idle';
+  catchChosenChick = null;
+  catchParticles = [];
+  catchConfetti = [];
+  catchFeathers = [];
+
+  updateCatchDockUI();
+}
+
+function updateCatchDockUI() {
+  const dot = document.getElementById('catch-dock-status-dot');
+  const text = document.getElementById('catch-dock-status-text');
+  const btnStart = document.getElementById('btn-catch-dock-start');
+  const btnNext = document.getElementById('btn-catch-dock-next');
+  const btnSpeak = document.getElementById('btn-catch-dock-speak');
+  const btnMode = document.getElementById('btn-catch-dock-mode');
+  const badgeCount = document.getElementById('badge-catch-finished-count');
+  const modePill = document.getElementById('catch-mode-pill');
+
+  if (badgeCount) {
+    badgeCount.textContent = `${catchWinners.length}/${catchTargetCount}`;
+  }
+
+  if (btnMode) {
+    btnMode.textContent = (catchMode === 'no_repeat') ? '🎯 Không Lặp' : '🎲 Ngẫu Nhiên';
+  }
+  if (modePill) {
+    modePill.textContent = (catchMode === 'no_repeat') ? '🎯 Không lặp lại • 🌾 Sới làng quê' : '🎲 Ngẫu nhiên • 🌾 Sới làng quê';
+  }
+
+  if (catchState === 'idle') {
+    if (dot) dot.style.background = '#22c55e';
+    if (text) text.textContent = 'Đàn gà con đang tung tăng mổ thóc... Bấm bắt gà!';
+    if (btnStart) btnStart.style.display = 'inline-block';
+    if (btnNext) btnNext.style.display = 'none';
+    if (btnSpeak) btnSpeak.style.display = 'none';
+  } else if (catchState === 'stalking' || catchState === 'fake_lunge' || catchState === 'missed' || catchState === 'pouncing') {
+    if (dot) dot.style.background = '#f59e0b';
+    if (text) text.textContent = 'Cậu bé đang rón rén bịt mắt đuổi bắt gà... Thót tim!';
+    if (btnStart) btnStart.style.display = 'none';
+    if (btnNext) btnNext.style.display = 'none';
+    if (btnSpeak) btnSpeak.style.display = 'none';
+  } else if (catchState === 'celebrating' || catchState === 'finished') {
+    if (dot) dot.style.background = '#38bdf8';
+    if (text && catchChosenChick) text.textContent = `🎉 ĐÃ TÓM ĐƯỢC: ${catchChosenChick.name}! Chúc mừng em!`;
+    if (btnStart) btnStart.style.display = 'none';
+    if (btnNext) btnNext.style.display = 'inline-block';
+    if (btnSpeak) btnSpeak.style.display = 'inline-block';
+  }
+}
+
+// Bắt đầu lượt bịt mắt bắt gà kịch tính
+function startCatchChase() {
+  if (catchState !== 'idle' && catchState !== 'finished') return;
+
+  // Tìm danh sách học sinh hợp lệ
+  let availableChicks = catchChicks;
+  if (catchMode === 'no_repeat') {
+    availableChicks = catchChicks.filter(c => !catchCaughtPool.has(c.id));
+    if (availableChicks.length === 0) {
+      // Đã bắt hết toàn bộ danh sách, tự động làm mới vòng chơi
+      catchCaughtPool.clear();
+      availableChicks = catchChicks;
+    }
+  }
+
+  if (availableChicks.length === 0) return;
+
+  // Chọn chú gà trúng thưởng
+  catchChosenChick = availableChicks[Math.floor(Math.random() * availableChicks.length)];
+
+  // Tạo chuỗi kịch bản vồ hụt hài hước (2 đến 3 lần vồ hụt trước khi tóm trúng)
+  const otherChicks = catchChicks.filter(c => c.id !== catchChosenChick.id);
+  const fakeCount = Math.min(2, otherChicks.length);
+  const shuffledOthers = [...otherChicks].sort(() => Math.random() - 0.5);
+  const fakeTargets = shuffledOthers.slice(0, fakeCount);
+
+  catchSequence = [];
+  // Lần vồ hụt
+  fakeTargets.forEach(target => {
+    catchSequence.push({ type: 'stalk_fake', target: target, duration: 1.4 });
+    catchSequence.push({ type: 'lunge_fake', target: target, duration: 0.8 });
+    catchSequence.push({ type: 'miss_recover', target: target, duration: 0.9 });
+  });
+  // Lần tóm trúng đích
+  catchSequence.push({ type: 'stalk_real', target: catchChosenChick, duration: 1.6 });
+  catchSequence.push({ type: 'pounce_real', target: catchChosenChick, duration: 0.9 });
+
+  catchSeqIdx = 0;
+  catchSeqTimer = 0;
+  catchState = 'stalking';
+  catchBoy.blindfoldLift = 0;
+  catchBoy.pose = 'stalk';
+
+  updateCatchDockUI();
+  playCatchSfx('peep');
+}
+
+function playNextCatchRound() {
+  // Đặt lại các trạng thái gà
+  catchChicks.forEach(c => {
+    if (c.state !== 'caught') {
+      c.state = 'idle';
+      c.panicTimer = 0;
+      c.exclaimTimer = 0;
+      c.sweatTimer = 0;
+    }
+  });
+  catchBoy.pose = 'idle';
+  catchBoy.blindfoldLift = 0;
+  catchBoy.x = 480;
+  catchBoy.y = 350;
+  catchState = 'idle';
+  catchChosenChick = null;
+  updateCatchDockUI();
+}
+
+function resetCatchRound() {
+  catchWinners = [];
+  catchCaughtPool.clear();
+  initCatchGame();
+  renderCatchWinnersList();
+  hidePodiumButton('catch');
+  const btnPod = document.getElementById('btn-podium-catch');
+  if (btnPod) btnPod.style.display = 'none';
+  updateCatchDockUI();
+}
+
+function toggleCatchMode() {
+  catchMode = (catchMode === 'no_repeat') ? 'pure_random' : 'no_repeat';
+  updateCatchDockUI();
+}
+
+function shuffleCatchChicks() {
+  const arenaBounds = { minX: 140, maxX: 820, minY: 270, maxY: 510 };
+  catchChicks.forEach(c => {
+    c.x = arenaBounds.minX + Math.random() * (arenaBounds.maxX - arenaBounds.minX);
+    c.y = arenaBounds.minY + Math.random() * (arenaBounds.maxY - arenaBounds.minY);
+    c.baseY = c.y;
+    c.facing = Math.random() > 0.5 ? 1 : -1;
+    c.wingPhase = Math.random() * Math.PI * 2;
+    c.hopY = -12;
+  });
+  playCatchSfx('peep');
+}
+
+function speakCatchCurrentWinner() {
+  if (!catchChosenChick) return;
+  const text = `Xin chúc mừng bạn ${catchChosenChick.name} đã được chọn!`;
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'vi-VN';
+    u.rate = 1.0;
+    const voices = window.speechSynthesis.getVoices();
+    const viVoice = voices.find(v => v.lang.includes('vi') || v.lang.includes('VIE'));
+    if (viVoice) u.voice = viVoice;
+    window.speechSynthesis.speak(u);
+  }
+}
+
+function renderCatchWinnersList() {
+  const listEl = document.getElementById('catch-winners-list');
+  if (!listEl) return;
+  if (catchWinners.length === 0) {
+    listEl.innerHTML = '<li style="color: var(--text-muted); font-size: 13px; text-align: center; margin-top: 30px;">Bấm "BẮT ĐẦU BẮT GÀ" hoặc phím Space để cậu bé bắt đầu đuổi bắt gà...</li>';
+    return;
+  }
+
+  listEl.innerHTML = catchWinners.map((w, idx) => `
+    <li style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius: 12px; margin-bottom: 8px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #ea580c); color: #fff; font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 8px rgba(245,158,11,0.5);">
+          ${idx + 1}
+        </div>
+        <div>
+          <div style="font-weight: 800; color: #fef08a; font-size: 14px;">${w.name}</div>
+          <div style="font-size: 11px; color: var(--text-muted);">🐔 Chú gà con số #${w.id}</div>
+        </div>
+      </div>
+      <span style="font-size: 18px;">✨</span>
+    </li>
+  `).join('');
+}
+
+function openCatchScreen() {
+  showScreen('catch');
+  initCatchGame();
+  if (!catchAnimId) {
+    catchLastTime = performance.now();
+    catchAnimLoop(catchLastTime);
+  }
+}
+
+// Animation Loop của trò chơi Bịt Mắt Bắt Gà
+function catchAnimLoop(timestamp) {
+  if (!catchCanvas) {
+    catchAnimId = null;
+    return;
+  }
+  const dt = Math.min(0.1, (timestamp - catchLastTime) / 1000);
+  catchLastTime = timestamp;
+
+  updateCatchPhysics(dt);
+  drawCatchScene();
+
+  const screen = document.getElementById('catch-screen');
+  if (screen && screen.style.display === 'flex') {
+    catchAnimId = requestAnimationFrame(catchAnimLoop);
+  } else {
+    catchAnimId = null;
+  }
+}
+
+// Cập nhật vật lý và chuyển động
+function updateCatchPhysics(dt) {
+  // 1. Chuyển động lang thang & mổ thóc của đàn gà con
+  const arenaBounds = { minX: 140, maxX: 820, minY: 270, maxY: 510 };
+
+  catchChicks.forEach(c => {
+    if (c.state === 'caught') {
+      // Đang được bế trên tay cậu bé
+      c.x = catchBoy.x + catchBoy.facing * 8;
+      c.y = catchBoy.y - 75 + Math.sin(performance.now() * 0.008) * 3;
+      c.wingPhase += dt * 15;
+      return;
+    }
+
+    c.wingPhase += dt * (c.state === 'panicking' ? 32 : 6);
+
+    if (c.panicTimer > 0) {
+      c.panicTimer -= dt;
+      if (c.panicTimer <= 0) c.state = 'idle';
+    }
+    if (c.sweatTimer > 0) c.sweatTimer -= dt;
+    if (c.exclaimTimer > 0) c.exclaimTimer -= dt;
+
+    if (c.hopY < 0) {
+      c.hopY += dt * 60;
+      if (c.hopY > 0) c.hopY = 0;
+    }
+
+    if (c.state === 'idle') {
+      c.peckTimer -= dt;
+      if (c.peckTimer <= 0) {
+        c.peckAngle = Math.PI * 0.35;
+        if (c.peckTimer <= -0.4) {
+          c.peckTimer = 1.5 + Math.random() * 2.5;
+          c.peckAngle = 0;
+          // thỉnh thoảng bước vài bước
+          c.vx = (Math.random() - 0.5) * 25;
+          c.vy = (Math.random() - 0.5) * 18;
+          c.facing = c.vx >= 0 ? 1 : -1;
+        }
+      } else {
+        c.peckAngle = 0;
+      }
+
+      c.x += c.vx * dt;
+      c.y += c.vy * dt;
+      c.vx *= 0.95;
+      c.vy *= 0.95;
+    } else if (c.state === 'panicking') {
+      // Chạy tán loạn khỏi cậu bé
+      const dx = c.x - catchBoy.x;
+      const dy = c.y - catchBoy.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      c.vx = (dx / dist) * 160;
+      c.vy = (dy / dist) * 120;
+      c.facing = c.vx >= 0 ? 1 : -1;
+      c.x += c.vx * dt;
+      c.y += c.vy * dt;
+      c.hopY = -Math.abs(Math.sin(performance.now() * 0.02)) * 8;
+    }
+
+    // Giữ gà con trong phạm vi sới đất
+    if (c.x < arenaBounds.minX) { c.x = arenaBounds.minX; c.vx = Math.abs(c.vx); c.facing = 1; }
+    if (c.x > arenaBounds.maxX) { c.x = arenaBounds.maxX; c.vx = -Math.abs(c.vx); c.facing = -1; }
+    if (c.y < arenaBounds.minY) { c.y = arenaBounds.minY; c.vy = Math.abs(c.vy); }
+    if (c.y > arenaBounds.maxY) { c.y = arenaBounds.maxY; c.vy = -Math.abs(c.vy); }
+  });
+
+  // 2. Xử lý kịch bản đuổi bắt
+  if (catchState === 'stalking') {
+    if (catchSeqIdx < catchSequence.length) {
+      const step = catchSequence[catchSeqIdx];
+      catchSeqTimer += dt;
+      const progress = Math.min(1, catchSeqTimer / step.duration);
+
+      if (step.type === 'stalk_fake' || step.type === 'stalk_real') {
+        catchBoy.pose = 'stalk';
+        catchBoy.walkPhase += dt * 8;
+        catchBoy.armPhase += dt * 6;
+
+        // Tiến lại gần mục tiêu
+        const approachX = step.target.x - (step.target.x > catchBoy.x ? 65 : -65);
+        const approachY = step.target.y - 10;
+        catchBoy.x += (approachX - catchBoy.x) * dt * 2.8;
+        catchBoy.y += (approachY - catchBoy.y) * dt * 2.8;
+        catchBoy.facing = step.target.x >= catchBoy.x ? 1 : -1;
+
+        if (step.target.x > catchBoy.x) {
+          step.target.facing = -1;
+        }
+
+        if (progress >= 1) {
+          catchSeqIdx++;
+          catchSeqTimer = 0;
+          catchBoy.startX = catchBoy.x;
+          catchBoy.startY = catchBoy.y;
+          if (step.type === 'stalk_fake') {
+            playCatchSfx('whoosh');
+          }
+        }
+      } else if (step.type === 'lunge_fake') {
+        // VỒ HỤT! Cậu bé lao nhanh tới nhưng chú gà né sang bên
+        catchBoy.pose = 'lunge';
+        const diveT = Math.sin(progress * Math.PI);
+        catchBoy.jumpY = -diveT * 22;
+        const targetDiveX = step.target.x + catchBoy.facing * 10;
+        catchBoy.x = catchBoy.startX + (targetDiveX - catchBoy.startX) * Math.min(1, progress * 1.5);
+
+        // Chú gà phát hiện và hoảng hốt nhảy né vèo sang bên!
+        if (progress > 0.15 && step.target.state !== 'panicking') {
+          step.target.state = 'panicking';
+          step.target.panicTimer = 1.2;
+          step.target.exclaimTimer = 1.0;
+          step.target.sweatTimer = 1.0;
+          step.target.hopY = -24;
+          playCatchSfx('boing');
+          playCatchSfx('panic');
+
+          // Bắn ra vài sợi lông gà vui mắt
+          for (let f = 0; f < 5; f++) {
+            catchFeathers.push({
+              x: step.target.x,
+              y: step.target.y - 10,
+              vx: (Math.random() - 0.5) * 80,
+              vy: -Math.random() * 60 - 20,
+              rot: Math.random() * Math.PI,
+              vRot: (Math.random() - 0.5) * 6,
+              color: '#ffffff',
+              life: 1.2
+            });
+          }
+        }
+
+        if (progress >= 1) {
+          catchSeqIdx++;
+          catchSeqTimer = 0;
+        }
+      } else if (step.type === 'miss_recover') {
+        // Cậu bé gãi đầu đứng dậy vì vồ hụt
+        catchBoy.pose = 'stumble';
+        catchBoy.jumpY = 0;
+        if (progress >= 1) {
+          catchSeqIdx++;
+          catchSeqTimer = 0;
+          catchBoy.startX = catchBoy.x;
+          catchBoy.startY = catchBoy.y;
+        }
+      } else if (step.type === 'pounce_real') {
+        // TÓM TRÚNG! Cậu bé lao tới và ôm trúng chú gà may mắn
+        catchBoy.pose = 'lunge';
+        const diveT = Math.sin(progress * Math.PI);
+        catchBoy.jumpY = -diveT * 18;
+        catchBoy.x = catchBoy.startX + (catchChosenChick.x - catchBoy.startX) * progress;
+        catchBoy.y = catchBoy.startY + (catchChosenChick.y - catchBoy.startY) * progress;
+
+        if (progress >= 0.85 && catchChosenChick.state !== 'caught') {
+          catchChosenChick.state = 'caught';
+          catchChosenChick.x = catchBoy.x;
+          catchChosenChick.y = catchBoy.y - 60;
+          playCatchSfx('triumph');
+        }
+
+        if (progress >= 1) {
+          // Bắt đầu ăn mừng rực rỡ!
+          catchState = 'celebrating';
+          catchBoy.pose = 'celebrate';
+          catchBoy.blindfoldLift = 1; // Nhấc dải lụa đỏ lên trán
+
+          // Đưa vào danh sách trúng thưởng
+          if (catchMode === 'no_repeat') {
+            catchCaughtPool.add(catchChosenChick.id);
+          }
+          catchWinners.unshift({
+            id: catchChosenChick.id,
+            name: catchChosenChick.name
+          });
+          renderCatchWinnersList();
+          updateCatchDockUI();
+          speakCatchCurrentWinner();
+
+          // Nổ pháo hoa và ngôi sao vàng
+          for (let i = 0; i < 90; i++) {
+            catchConfetti.push({
+              x: catchBoy.x + (Math.random() - 0.5) * 60,
+              y: catchBoy.y - 60 + (Math.random() - 0.5) * 30,
+              vx: (Math.random() - 0.5) * 300,
+              vy: -Math.random() * 260 - 80,
+              color: ['#facc15', '#f59e0b', '#ec4899', '#3b82f6', '#10b981', '#a855f7', '#ef4444'][Math.floor(Math.random() * 7)],
+              size: 6 + Math.random() * 6,
+              rot: Math.random() * Math.PI,
+              vRot: (Math.random() - 0.5) * 10,
+              life: 2.5
+            });
+          }
+
+          // Kiểm tra xem đã đạt top chưa để mở bục vinh danh
+          if (catchWinners.length >= catchTargetCount) {
+            const btnPod = document.getElementById('btn-podium-catch');
+            if (btnPod) btnPod.style.display = 'block';
+            if (typeof currentWinners !== 'undefined') {
+              currentWinners = catchWinners.map((w, idx) => ({
+                ...w,
+                rank: idx + 1,
+                time: `00:0${idx + 4}`
+              }));
+            }
+          }
+
+          setTimeout(() => {
+            if (catchState === 'celebrating') {
+              catchState = 'finished';
+              updateCatchDockUI();
+            }
+          }, 3000);
+        }
+      }
+    }
+  }
+
+  // 3. Cập nhật confetti và lông gà
+  for (let i = catchConfetti.length - 1; i >= 0; i--) {
+    const p = catchConfetti[i];
+    p.x += p.vx * dt;
+    p.y += p.vy * dt;
+    p.vy += 320 * dt; // gravity
+    p.rot += p.vRot * dt;
+    p.life -= dt;
+    if (p.life <= 0) catchConfetti.splice(i, 1);
+  }
+
+  for (let i = catchFeathers.length - 1; i >= 0; i--) {
+    const f = catchFeathers[i];
+    f.x += f.vx * dt;
+    f.y += f.vy * dt;
+    f.vy += 60 * dt; // feather floats gently
+    f.rot += f.vRot * dt;
+    f.life -= dt;
+    if (f.life <= 0) catchFeathers.splice(i, 1);
+  }
+}
+
+// Vẽ toàn cảnh sới gà làng quê rộn ràng
+function drawCatchScene() {
+  if (!catchCtx) return;
+  const ctx = catchCtx;
+  const w = 960;
+  const h = 600;
+
+  ctx.clearRect(0, 0, w, h);
+
+  // 1. BẦU TRỜ LÀNG QUÊ SỚM MAI NẮNG VÀNG ẤM ÁP
+  const skyGrad = ctx.createLinearGradient(0, 0, 0, 300);
+  skyGrad.addColorStop(0, '#60a5fa');
+  skyGrad.addColorStop(0.6, '#93c5fd');
+  skyGrad.addColorStop(1, '#fef08a');
+  ctx.fillStyle = skyGrad;
+  ctx.fillRect(0, 0, w, 320);
+
+  // Mặt trời sớm ấm áp
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(820, 90, 42, 0, Math.PI * 2);
+  ctx.fillStyle = '#fef08a';
+  ctx.shadowColor = '#facc15';
+  ctx.shadowBlur = 35;
+  ctx.fill();
+  ctx.restore();
+
+  // Những đám mây trắng bồng bềnh
+  drawVillageCloud(ctx, 160, 80, 50);
+  drawVillageCloud(ctx, 420, 60, 65);
+  drawVillageCloud(ctx, 680, 110, 45);
+
+  // 2. RẶNG DỪA, BỤI TRE VÀ MÁI CHÒI ĐÌNH LÀNG XA XA
+  drawVillageScenery(ctx, w, h);
+
+  // 3. DÂY CỜ NGŨ SẮC ĐUÔI NHEO LỄ HỘI CHĂNG NGANG
+  drawFestivalPennants(ctx, w);
+
+  // 4. SÂN SỚI ĐẤT CÁT MỊN MÀU NÂU VÀNG
+  const groundGrad = ctx.createRadialGradient(480, 430, 80, 480, 430, 480);
+  groundGrad.addColorStop(0, '#e5be8a');
+  groundGrad.addColorStop(0.7, '#d4a373');
+  groundGrad.addColorStop(1, '#b58351');
+  ctx.fillStyle = groundGrad;
+  ctx.beginPath();
+  ctx.ellipse(480, 430, 430, 165, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = '#8c592a';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // Hạt thóc vàng rải rác trên sân
+  ctx.fillStyle = '#fef08a';
+  for (let s = 0; s < 40; s++) {
+    const sx = 180 + ((s * 37) % 600);
+    const sy = 310 + ((s * 23) % 190);
+    ctx.fillRect(sx, sy, 3, 2);
+  }
+
+  // 5. ĐỤN RƠM VÀNG & BÙ NHÌN RƠM ĐÁNG YÊU
+  drawHaystacks(ctx);
+
+  // 6. HÀNG RÀO TRE / CỌC GỖ DÂN GIAN BAO QUANH
+  drawWoodenFence(ctx);
+
+  // 7. SẮP XẾP ĐỐI TƯỢNG THEO TRỤC Y ĐỂ TẠO CHIỀU SÂU 3D
+  const renderList = [];
+  catchChicks.forEach(c => renderList.push({ type: 'chick', y: c.y, data: c }));
+  renderList.push({ type: 'boy', y: catchBoy.y, data: catchBoy });
+
+  renderList.sort((a, b) => a.y - b.y);
+
+  renderList.forEach(item => {
+    if (item.type === 'chick') {
+      drawChick(ctx, item.data);
+    } else if (item.type === 'boy') {
+      drawBlindfoldedBoy(ctx, item.data);
+    }
+  });
+
+  // 8. LÔNG GÀ BAY KHI VỒ HỤT
+  catchFeathers.forEach(f => {
+    ctx.save();
+    ctx.translate(f.x, f.y);
+    ctx.rotate(f.rot);
+    ctx.fillStyle = f.color;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 7, 3, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  });
+
+  // 9. PHÁO HOA & CONFETTI KHI BẮT TRÚNG
+  catchConfetti.forEach(p => {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.fillStyle = p.color;
+    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+    ctx.restore();
+  });
+
+  // 10. BANNER CHIẾN THẮNG VINH DANH TRONG CANVAS NẾU ĐÃ BẮT ĐƯỢC
+  if (catchChosenChick && (catchState === 'celebrating' || catchState === 'finished')) {
+    drawCelebrationBanner(ctx, w, catchChosenChick);
+  }
+}
+
+// Vẽ mây trời bồng bềnh
+function drawVillageCloud(ctx, x, y, r) {
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.arc(x + r * 0.6, y - r * 0.2, r * 0.7, 0, Math.PI * 2);
+  ctx.arc(x - r * 0.6, y, r * 0.6, 0, Math.PI * 2);
+  ctx.arc(x + r * 1.1, y + r * 0.1, r * 0.5, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+// Vẽ khung cảnh làng quê (mái đình, rặng dừa, lũy tre)
+function drawVillageScenery(ctx, w, h) {
+  // Rặng tre xanh rì xa xa
+  ctx.fillStyle = '#15803d';
+  for (let i = 0; i < 9; i++) {
+    const tx = 40 + i * 110;
+    ctx.beginPath();
+    ctx.arc(tx, 260, 55, Math.PI, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Mái chòi đình làng cổ kính ngói đỏ
+  ctx.save();
+  ctx.translate(480, 200);
+  // Cột gỗ chòi đình
+  ctx.fillStyle = '#78350f';
+  ctx.fillRect(-60, 30, 8, 45);
+  ctx.fillRect(52, 30, 8, 45);
+  // Mái ngói đỏ cong vút
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.quadraticCurveTo(-50, 15, -85, 32);
+  ctx.quadraticCurveTo(0, 26, 85, 32);
+  ctx.quadraticCurveTo(50, 15, 0, 0);
+  ctx.fillStyle = '#dc2626';
+  ctx.fill();
+  ctx.strokeStyle = '#991b1b';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  // Đỉnh chòi đình
+  ctx.beginPath();
+  ctx.arc(0, 0, 6, 0, Math.PI * 2);
+  ctx.fillStyle = '#facc15';
+  ctx.fill();
+  ctx.restore();
+
+  // Cây dừa rợp bóng hai bên
+  drawCoconutTree(ctx, 90, 270);
+  drawCoconutTree(ctx, 870, 260, true);
+}
+
+function drawCoconutTree(ctx, x, y, flipped = false) {
+  ctx.save();
+  ctx.translate(x, y);
+  if (flipped) ctx.scale(-1, 1);
+
+  // Thân dừa cong
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.quadraticCurveTo(20, -70, 10, -140);
+  ctx.lineWidth = 14;
+  ctx.strokeStyle = '#a16207';
+  ctx.lineCap = 'round';
+  ctx.stroke();
+
+  // Vòng vân thân dừa
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = '#713f12';
+  for (let i = 1; i < 8; i++) {
+    ctx.strokeRect(3, -i * 18, 10, 2);
+  }
+
+  // Tán lá dừa xoè rộng
+  ctx.translate(10, -140);
+  const fronds = [-1.4, -0.8, -0.2, 0.4, 0.9, 1.4];
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = '#15803d';
+  fronds.forEach(ang => {
+    ctx.save();
+    ctx.rotate(ang);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(40, -15, 70, 15);
+    ctx.stroke();
+    // Lá nhỏ
+    for (let l = 15; l < 65; l += 10) {
+      ctx.beginPath();
+      ctx.moveTo(l, -5);
+      ctx.lineTo(l + 6, 12);
+      ctx.stroke();
+    }
+    ctx.restore();
+  });
+  ctx.restore();
+}
+
+// Vẽ cờ đuôi nheo ngũ sắc lễ hội
+function drawFestivalPennants(ctx, w) {
+  ctx.beginPath();
+  ctx.moveTo(0, 140);
+  ctx.quadraticCurveTo(w / 2, 195, w, 140);
+  ctx.strokeStyle = '#78350f';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Treo từng lá cờ
+  const count = 22;
+  for (let i = 0; i <= count; i++) {
+    const t = i / count;
+    const px = t * w;
+    const py = (1 - t) * (1 - t) * 140 + 2 * (1 - t) * t * 195 + t * t * 140;
+    const flag = CATCH_FLAGS[i % CATCH_FLAGS.length];
+
+    ctx.beginPath();
+    ctx.moveTo(px, py);
+    ctx.lineTo(px + 12, py);
+    ctx.lineTo(px + 6, py + flag.h);
+    ctx.closePath();
+    ctx.fillStyle = flag.color;
+    ctx.fill();
+  }
+}
+
+// Vẽ đụn rơm vàng & bù nhìn rơm ngộ nghĩnh
+function drawHaystacks(ctx) {
+  drawSingleHaystack(ctx, 110, 360, 75, 110);
+  drawSingleHaystack(ctx, 850, 370, 70, 100);
+
+  // Chú bù nhìn rơm ở mép trên sới đất
+  ctx.save();
+  ctx.translate(320, 275);
+  // Cọc cắm
+  ctx.fillStyle = '#78350f';
+  ctx.fillRect(-3, 0, 6, 45);
+  // Tay gỗ dang ngang
+  ctx.fillRect(-28, -25, 56, 5);
+  // Áo bà ba bù nhìn chắp vá
+  ctx.fillStyle = '#0284c7';
+  ctx.fillRect(-16, -24, 32, 28);
+  ctx.fillStyle = '#f59e0b';
+  ctx.fillRect(-10, -16, 8, 8); // miếng vá
+  // Đầu rơm tròn
+  ctx.beginPath();
+  ctx.arc(0, -32, 12, 0, Math.PI * 2);
+  ctx.fillStyle = '#fef08a';
+  ctx.fill();
+  // Mắt cười & má hồng bù nhìn
+  ctx.fillStyle = '#000';
+  ctx.beginPath();
+  ctx.arc(-4, -33, 1.8, 0, Math.PI * 2);
+  ctx.arc(4, -33, 1.8, 0, Math.PI * 2);
+  ctx.fill();
+  // Miệng cười
+  ctx.strokeStyle = '#ef4444';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(0, -31, 5, 0.2, Math.PI - 0.2);
+  ctx.stroke();
+  // Nón lá bù nhìn đội nghiêng
+  ctx.beginPath();
+  ctx.moveTo(0, -52);
+  ctx.lineTo(-20, -38);
+  ctx.lineTo(20, -38);
+  ctx.closePath();
+  ctx.fillStyle = '#facc15';
+  ctx.fill();
+  ctx.strokeStyle = '#ca8a04';
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawSingleHaystack(ctx, x, y, r, h) {
+  ctx.save();
+  ctx.translate(x, y);
+
+  // Bóng đụn rơm
+  ctx.beginPath();
+  ctx.ellipse(0, 10, r * 1.1, 16, 0, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(0,0,0,0.18)';
+  ctx.fill();
+
+  // Thân đụn rơm vòm nón
+  ctx.beginPath();
+  ctx.moveTo(-r, 10);
+  ctx.quadraticCurveTo(-r * 0.8, -h * 0.7, 0, -h);
+  ctx.quadraticCurveTo(r * 0.8, -h * 0.7, r, 10);
+  ctx.closePath();
+
+  const grad = ctx.createLinearGradient(-r, 0, r, 0);
+  grad.addColorStop(0, '#d97706');
+  grad.addColorStop(0.5, '#fde047');
+  grad.addColorStop(1, '#b45309');
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Sợi rơm xơ xơ
+  ctx.strokeStyle = '#fef08a';
+  ctx.lineWidth = 1.5;
+  for (let i = 0; i < 16; i++) {
+    const sx = -r * 0.7 + Math.random() * r * 1.4;
+    const sy = -h * 0.8 + Math.random() * h * 0.8;
+    ctx.beginPath();
+    ctx.moveTo(sx, sy);
+    ctx.lineTo(sx + (Math.random() - 0.5) * 16, sy + 14);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+// Vẽ hàng rào cọc tre dân gian
+function drawWoodenFence(ctx) {
+  ctx.save();
+  const fencePosts = [
+    { x: 130, y: 310 }, { x: 180, y: 280 }, { x: 250, y: 265 },
+    { x: 340, y: 255 }, { x: 440, y: 250 }, { x: 540, y: 250 },
+    { x: 640, y: 255 }, { x: 730, y: 265 }, { x: 800, y: 280 },
+    { x: 845, y: 310 }
+  ];
+
+  // Thanh giằng ngang
+  ctx.beginPath();
+  ctx.moveTo(fencePosts[0].x, fencePosts[0].y - 12);
+  for (let i = 1; i < fencePosts.length; i++) {
+    ctx.lineTo(fencePosts[i].x, fencePosts[i].y - 12);
+  }
+  ctx.strokeStyle = '#78350f';
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(fencePosts[0].x, fencePosts[0].y + 6);
+  for (let i = 1; i < fencePosts.length; i++) {
+    ctx.lineTo(fencePosts[i].x, fencePosts[i].y + 6);
+  }
+  ctx.strokeStyle = '#78350f';
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  // Các cọc tre đứng
+  fencePosts.forEach(p => {
+    ctx.fillStyle = '#a16207';
+    ctx.fillRect(p.x - 4, p.y - 30, 8, 48);
+    ctx.strokeStyle = '#451a03';
+    ctx.lineWidth = 1.2;
+    ctx.strokeRect(p.x - 4, p.y - 30, 8, 48);
+    // Ngọn cọc vát nhọn
+    ctx.beginPath();
+    ctx.moveTo(p.x - 4, p.y - 30);
+    ctx.lineTo(p.x, p.y - 36);
+    ctx.lineTo(p.x + 4, p.y - 30);
+    ctx.fillStyle = '#ca8a04';
+    ctx.fill();
+  });
+  ctx.restore();
+}
+
+// Vẽ chú gà con siêu kute má hồng, mỏ cam
+function drawChick(ctx, c) {
+  ctx.save();
+  const drawY = c.y + c.hopY;
+  ctx.translate(c.x, drawY);
+
+  // Bóng râm của chú gà trên cát
+  ctx.beginPath();
+  ctx.ellipse(0, 14 - c.hopY * 0.3, c.size * 0.7, 5, 0, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.18)';
+  ctx.fill();
+
+  // Hướng mặt chú gà
+  if (c.facing === -1) {
+    ctx.scale(-1, 1);
+  }
+
+  // Hai chân cam nhỏ
+  ctx.strokeStyle = '#ea580c';
+  ctx.lineWidth = 2.5;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(-5, 8); ctx.lineTo(-7, 16); ctx.lineTo(-12, 17);
+  ctx.moveTo(5, 8); ctx.lineTo(7, 16); ctx.lineTo(12, 17);
+  ctx.stroke();
+
+  // Đuôi gà con vểnh nhỏ phía sau
+  ctx.beginPath();
+  ctx.moveTo(-c.size * 0.6, -2);
+  ctx.lineTo(-c.size * 0.85, -10);
+  ctx.lineTo(-c.size * 0.5, -7);
+  ctx.fillStyle = '#fde68a';
+  ctx.fill();
+
+  // Thân tròn lông xù trắng muốt hơi ngả vàng nắng
+  const bodyGrad = ctx.createRadialGradient(-2, -4, 4, 0, 0, c.size * 0.85);
+  bodyGrad.addColorStop(0, '#ffffff');
+  bodyGrad.addColorStop(0.7, '#fef9c3');
+  bodyGrad.addColorStop(1, '#fde047');
+  ctx.fillStyle = bodyGrad;
+  ctx.beginPath();
+  ctx.ellipse(0, 0, c.size * 0.75, c.size * 0.65, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = '#facc15';
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+
+  // Đầu tròn chú gà
+  const headGrad = ctx.createRadialGradient(8, -14, 2, 8, -12, 15);
+  headGrad.addColorStop(0, '#ffffff');
+  headGrad.addColorStop(0.75, '#fef9c3');
+  headGrad.addColorStop(1, '#fef08a');
+  ctx.fillStyle = headGrad;
+  ctx.beginPath();
+  ctx.arc(8, -12, 14, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+
+  // Mỏ cam xinh xắn
+  ctx.save();
+  ctx.translate(20, -11);
+  ctx.rotate(c.peckAngle);
+  ctx.beginPath();
+  ctx.moveTo(0, -3);
+  ctx.lineTo(8, 0);
+  ctx.lineTo(0, 4);
+  ctx.closePath();
+  ctx.fillStyle = '#f97316';
+  ctx.fill();
+  ctx.restore();
+
+  // Má hồng bầu bĩnh kute
+  ctx.beginPath();
+  ctx.arc(11, -7, 3.8, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.55)';
+  ctx.fill();
+
+  // Mắt tròn đen lay láy có đốm sáng trắng
+  ctx.beginPath();
+  ctx.arc(14, -14, 3, 0, Math.PI * 2);
+  ctx.fillStyle = '#0f172a';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(15, -15, 1, 0, Math.PI * 2);
+  ctx.fillStyle = '#ffffff';
+  ctx.fill();
+
+  // Cánh gà con vỗ phành phạch
+  const wingAng = Math.sin(c.wingPhase) * (c.state === 'panicking' ? 0.75 : 0.25);
+  ctx.save();
+  ctx.translate(-4, -2);
+  ctx.rotate(wingAng);
+  ctx.beginPath();
+  ctx.ellipse(0, 0, 11, 7, -0.2, 0, Math.PI * 2);
+  ctx.fillStyle = '#fef08a';
+  ctx.fill();
+  ctx.strokeStyle = '#eab308';
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+  ctx.restore();
+
+  // PHỤ KIỆN HÀI HƯỚC (Kính cận / Nón lá con / Nơ hồng)
+  if (c.accessory === 'glasses') {
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.arc(14, -14, 5, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(9, -14);
+    ctx.lineTo(4, -14);
+    ctx.stroke();
+  } else if (c.accessory === 'leaf_hat') {
+    ctx.beginPath();
+    ctx.moveTo(8, -32);
+    ctx.lineTo(-2, -22);
+    ctx.lineTo(18, -22);
+    ctx.closePath();
+    ctx.fillStyle = '#fbbf24';
+    ctx.fill();
+    ctx.strokeStyle = '#ca8a04';
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+  } else if (c.accessory === 'bow') {
+    ctx.fillStyle = '#f43f5e';
+    ctx.beginPath();
+    ctx.arc(2, -23, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(2, -23); ctx.lineTo(-4, -27); ctx.lineTo(-4, -19); ctx.closePath();
+    ctx.moveTo(2, -23); ctx.lineTo(8, -27); ctx.lineTo(8, -19); ctx.closePath();
+    ctx.fill();
+  }
+
+  // Bong bóng biểu cảm khi hoảng hốt (giọt mồ hôi 💦 hoặc dấu chấm than !!)
+  if (c.exclaimTimer > 0) {
+    ctx.fillStyle = '#ef4444';
+    ctx.font = 'bold 16px Outfit, sans-serif';
+    ctx.fillText('!!', 18, -28);
+  }
+  if (c.sweatTimer > 0) {
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '14px Outfit, sans-serif';
+    ctx.fillText('💦', -14, -26);
+  }
+
+  ctx.restore();
+
+  // BẢNG TÊN HỌC SINH ĐÍNH KÈM CHÚ GÀ
+  ctx.save();
+  ctx.translate(c.x, drawY);
+  const nameText = `${c.id}. ${c.name}`;
+  ctx.font = 'bold 12px Inter, sans-serif';
+  const textW = ctx.measureText(nameText).width;
+  const badgeW = Math.max(50, textW + 16);
+  const badgeH = 20;
+
+  // Hộp tên nổi bật bo góc
+  ctx.fillStyle = (c.state === 'caught') ? 'rgba(234, 179, 8, 0.95)' : 'rgba(15, 23, 42, 0.88)';
+  ctx.beginPath();
+  ctx.roundRect(-badgeW / 2, -38, badgeW, badgeH, 10);
+  ctx.fill();
+  ctx.strokeStyle = (c.state === 'caught') ? '#ffffff' : 'rgba(245, 158, 11, 0.6)';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = (c.state === 'caught') ? '#451a03' : '#ffffff';
+  ctx.fillText(nameText, 0, -28);
+  ctx.restore();
+}
+
+// Vẽ cậu bé bịt dải lụa đỏ đuổi bắt gà
+function drawBlindfoldedBoy(ctx, b) {
+  ctx.save();
+  const drawY = b.y + b.jumpY;
+  ctx.translate(b.x, drawY);
+
+  // Bóng cậu bé trên mặt cát
+  ctx.beginPath();
+  ctx.ellipse(0, 10 - b.jumpY * 0.4, 28, 8, 0, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.22)';
+  ctx.fill();
+
+  if (b.facing === -1) {
+    ctx.scale(-1, 1);
+  }
+
+  const walkSwing = Math.sin(b.walkPhase);
+
+  // HAI CHÂN & QUẦN NÂU XẮN GẤU
+  ctx.strokeStyle = '#451a03';
+  ctx.lineWidth = 7;
+  ctx.lineCap = 'round';
+  // Chân trái
+  ctx.beginPath();
+  ctx.moveTo(-8, -25);
+  ctx.lineTo(-12 + walkSwing * 10, 4);
+  ctx.stroke();
+  // Bàn chân trần
+  ctx.beginPath();
+  ctx.moveTo(-12 + walkSwing * 10, 4);
+  ctx.lineTo(-4 + walkSwing * 10, 6);
+  ctx.strokeStyle = '#fed7aa';
+  ctx.lineWidth = 5;
+  ctx.stroke();
+
+  // Chân phải
+  ctx.beginPath();
+  ctx.moveTo(8, -25);
+  ctx.lineTo(12 - walkSwing * 10, 4);
+  ctx.strokeStyle = '#451a03';
+  ctx.lineWidth = 7;
+  ctx.stroke();
+  // Bàn chân trần
+  ctx.beginPath();
+  ctx.moveTo(12 - walkSwing * 10, 4);
+  ctx.lineTo(20 - walkSwing * 10, 6);
+  ctx.strokeStyle = '#fed7aa';
+  ctx.lineWidth = 5;
+  ctx.stroke();
+
+  // THÂN ÁO BÀ BA MÀU NÂU ĐẤT
+  ctx.fillStyle = '#78350f';
+  ctx.beginPath();
+  ctx.roundRect(-16, -58, 32, 36, 6);
+  ctx.fill();
+  ctx.strokeStyle = '#451a03';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Hàng cúc áo bà ba phía trước
+  ctx.fillStyle = '#fbbf24';
+  ctx.beginPath();
+  ctx.arc(0, -50, 1.8, 0, Math.PI * 2);
+  ctx.arc(0, -42, 1.8, 0, Math.PI * 2);
+  ctx.arc(0, -34, 1.8, 0, Math.PI * 2);
+  ctx.fill();
+
+  // ĐẦU & KHUÔN MẶT BẦU BĨNH
+  ctx.beginPath();
+  ctx.arc(2, -72, 16, 0, Math.PI * 2);
+  ctx.fillStyle = '#fed7aa';
+  ctx.fill();
+  ctx.strokeStyle = '#ea580c';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Miệng cười
+  ctx.beginPath();
+  if (b.pose === 'celebrate') {
+    // Cười toe toét hào hứng khi tóm được gà
+    ctx.arc(5, -67, 6, 0.1, Math.PI - 0.1);
+    ctx.fillStyle = '#ef4444';
+    ctx.fill();
+  } else {
+    // Miệng mím lại hồi hộp
+    ctx.arc(5, -67, 4, 0.2, Math.PI - 0.2);
+    ctx.strokeStyle = '#7c2d12';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  // DẢI LỤA ĐỎ BỊT MẮT THẦN THÁNH
+  ctx.save();
+  if (b.blindfoldLift > 0) {
+    // Nhấc dải lụa đỏ lên trán để lộ mắt sáng rực rỡ
+    ctx.fillStyle = '#ef4444';
+    ctx.fillRect(-12, -84, 30, 7);
+    // Đôi mắt to tròn vui sướng
+    ctx.fillStyle = '#0f172a';
+    ctx.beginPath();
+    ctx.arc(6, -74, 3, 0, Math.PI * 2);
+    ctx.arc(12, -74, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(7, -75, 1, 0, Math.PI * 2);
+    ctx.arc(13, -75, 1, 0, Math.PI * 2);
+    ctx.fill();
+  } else {
+    // Bịt kín ngang mắt
+    ctx.fillStyle = '#dc2626';
+    ctx.beginPath();
+    ctx.roundRect(-12, -77, 30, 9, 3);
+    ctx.fill();
+    ctx.strokeStyle = '#991b1b';
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+  }
+
+  // Hai đuôi dải lụa đỏ bay phấp phới trong gió phía sau
+  const ribbonWave = Math.sin(performance.now() * 0.012) * 8;
+  ctx.strokeStyle = '#ef4444';
+  ctx.lineWidth = 3.5;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(-12, -73);
+  ctx.quadraticCurveTo(-26, -75 + ribbonWave, -40, -68 + ribbonWave * 1.5);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(-12, -70);
+  ctx.quadraticCurveTo(-24, -68 - ribbonWave, -36, -58 - ribbonWave * 1.2);
+  ctx.stroke();
+  ctx.restore();
+
+  // NÓN LÁ TRUYỀN THỐNG ĐỘI TRÊN ĐẦU
+  ctx.beginPath();
+  ctx.moveTo(2, -104);
+  ctx.lineTo(-24, -84);
+  ctx.lineTo(28, -84);
+  ctx.closePath();
+  const hatGrad = ctx.createLinearGradient(0, -104, 0, -84);
+  hatGrad.addColorStop(0, '#fef08a');
+  hatGrad.addColorStop(0.7, '#facc15');
+  hatGrad.addColorStop(1, '#ca8a04');
+  ctx.fillStyle = hatGrad;
+  ctx.fill();
+  ctx.strokeStyle = '#a16207';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  // Vành nón lá & nan nón
+  ctx.beginPath();
+  ctx.moveTo(2, -104); ctx.lineTo(2, -84);
+  ctx.moveTo(-10, -94); ctx.lineTo(14, -94);
+  ctx.strokeStyle = 'rgba(161, 98, 7, 0.45)';
+  ctx.stroke();
+
+  // HAI TAY DANG RỘNG VỒ BẮT HOẶC NÂNG GÀ CHIẾN THẮNG
+  ctx.strokeStyle = '#fed7aa';
+  ctx.lineWidth = 6;
+  ctx.lineCap = 'round';
+
+  if (b.pose === 'celebrate') {
+    // Hai tay giơ cao nâng chú gà con
+    ctx.beginPath();
+    ctx.moveTo(-12, -54); ctx.lineTo(-10, -78); ctx.lineTo(0, -82);
+    ctx.moveTo(12, -54); ctx.lineTo(14, -78); ctx.lineTo(10, -82);
+    ctx.stroke();
+  } else if (b.pose === 'lunge') {
+    // Lao người về phía trước, hai tay chộp lấy
+    ctx.beginPath();
+    ctx.moveTo(-10, -52); ctx.lineTo(16, -42); ctx.lineTo(28, -36);
+    ctx.moveTo(10, -52); ctx.lineTo(22, -48); ctx.lineTo(34, -40);
+    ctx.stroke();
+  } else {
+    // Đang lần mò không trung tìm kiếm
+    const armWave = Math.sin(b.armPhase) * 8;
+    ctx.beginPath();
+    ctx.moveTo(-12, -52); ctx.lineTo(6, -48 + armWave); ctx.lineTo(20, -42 - armWave);
+    ctx.moveTo(12, -52); ctx.lineTo(24, -46 - armWave); ctx.lineTo(36, -44 + armWave);
+    ctx.stroke();
+  }
+
+  ctx.restore();
+}
+
+// Banner ăn mừng trang trọng trong Canvas
+function drawCelebrationBanner(ctx, w, winner) {
+  ctx.save();
+  const bannerW = 620;
+  const bannerH = 100;
+  const bx = (w - bannerW) / 2;
+  const by = 48;
+
+  // Hộp banner viền vàng ánh kim lấp lánh
+  ctx.fillStyle = 'rgba(20, 16, 12, 0.94)';
+  ctx.beginPath();
+  ctx.roundRect(bx, by, bannerW, bannerH, 20);
+  ctx.fill();
+  ctx.strokeStyle = '#f59e0b';
+  ctx.lineWidth = 3;
+  ctx.shadowColor = '#f59e0b';
+  ctx.shadowBlur = 18;
+  ctx.stroke();
+
+  ctx.shadowBlur = 0;
+  ctx.textAlign = 'center';
+
+  // Dòng 1: Tiêu đề
+  ctx.font = '800 15px Outfit, sans-serif';
+  ctx.fillStyle = '#fde68a';
+  ctx.fillText('🌾 SỚI GÀ DÂN GIAN • CHÚC MỪNG BẠN MAY MẮN! 🌾', w / 2, by + 30);
+
+  // Dòng 2: Tên học sinh cỡ lớn
+  ctx.font = '900 30px Outfit, sans-serif';
+  const nameGrad = ctx.createLinearGradient(bx, 0, bx + bannerW, 0);
+  nameGrad.addColorStop(0, '#ffffff');
+  nameGrad.addColorStop(0.5, '#fef08a');
+  nameGrad.addColorStop(1, '#f59e0b');
+  ctx.fillStyle = nameGrad;
+  ctx.fillText(`🎉 ${winner.name} 🎉`, w / 2, by + 72);
+
+  ctx.restore();
+}
+
+// Gắn kết các sự kiện tương tác của Game Engine 9
+const btnStartCatchTop = document.getElementById('btn-start-catch-top');
+if (btnStartCatchTop) btnStartCatchTop.addEventListener('click', startCatchChase);
+
+const btnStartCatchDock = document.getElementById('btn-catch-dock-start');
+if (btnStartCatchDock) btnStartCatchDock.addEventListener('click', startCatchChase);
+
+const btnNextCatchDock = document.getElementById('btn-catch-dock-next');
+if (btnNextCatchDock) btnNextCatchDock.addEventListener('click', playNextCatchRound);
+
+const btnSpeakCatchDock = document.getElementById('btn-catch-dock-speak');
+if (btnSpeakCatchDock) btnSpeakCatchDock.addEventListener('click', speakCatchCurrentWinner);
+
+const btnSpeakCatchSide = document.getElementById('btn-speak-catch');
+if (btnSpeakCatchSide) btnSpeakCatchSide.addEventListener('click', speakCatchCurrentWinner);
+
+const btnShuffleCatchDock = document.getElementById('btn-catch-dock-shuffle');
+if (btnShuffleCatchDock) btnShuffleCatchDock.addEventListener('click', shuffleCatchChicks);
+
+const btnShuffleCatchTop = document.getElementById('btn-catch-shuffle-top');
+if (btnShuffleCatchTop) btnShuffleCatchTop.addEventListener('click', shuffleCatchChicks);
+
+const btnModeCatchDock = document.getElementById('btn-catch-dock-mode');
+if (btnModeCatchDock) btnModeCatchDock.addEventListener('click', toggleCatchMode);
+
+const btnResetCatch = document.getElementById('btn-reset-catch');
+if (btnResetCatch) btnResetCatch.addEventListener('click', resetCatchRound);
+
+if (catchCanvas) {
+  catchCanvas.addEventListener('click', () => {
+    if (catchState === 'idle') startCatchChase();
+    else if (catchState === 'finished') playNextCatchRound();
+  });
+}
+
+const cardCatch = document.getElementById('home-card-catch');
+if (cardCatch) cardCatch.addEventListener('click', openCatchScreen);
+const btnPlayCatch = document.getElementById('btn-home-play-catch');
+if (btnPlayCatch) btnPlayCatch.addEventListener('click', (e) => { e.stopPropagation(); openCatchScreen(); });
+
+const btnOpenCatch = document.getElementById('btn-open-catch');
+if (btnOpenCatch) btnOpenCatch.addEventListener('click', openCatchScreen);
+
+
+        const btnHomeOpenSetup = document.getElementById('btn-home-open-setup');
     if (btnHomeOpenSetup) {
       btnHomeOpenSetup.addEventListener('click', () => showScreen('setup'));
     }
@@ -12260,7 +13931,8 @@ Bùi Khánh Linh"></textarea>
         rocket: document.getElementById('setup-tab-content-rocket'),
         gift: document.getElementById('setup-tab-content-gift'),
         fish: document.getElementById('setup-tab-content-fish'),
-        ufo: document.getElementById('setup-tab-content-ufo')
+        ufo: document.getElementById('setup-tab-content-ufo'),
+        catch: document.getElementById('setup-tab-content-catch')
       };
       Object.keys(panels).forEach(k => {
         if (panels[k]) panels[k].style.display = (game === k) ? 'block' : 'none';
@@ -12356,6 +14028,9 @@ Bùi Khánh Linh"></textarea>
       } else if (currentQuickGame === 'ufo') {
         if (titleEl) titleEl.innerHTML = '🛸 Nhập Danh Sách & Cài Đặt UFO Ơi, Bắt Em Này';
         if (descEl) descEl.textContent = 'Nhập danh sách học sinh và gọi tên bằng đĩa bay vũ trụ';
+      } else if (currentQuickGame === 'catch') {
+        if (titleEl) titleEl.innerHTML = '🐔 Nhập Danh Sách & Cài Đặt Bịt Mắt Bắt Gà';
+        if (descEl) descEl.textContent = 'Nhập danh sách học sinh và gọi tên bằng trò chơi dân gian bịt mắt bắt gà';
       }
 
       modal.classList.add('show');
